@@ -36,8 +36,6 @@ src/ Core spectral transport and SU(3) connection code
 tests/ Minimal reproducibility scripts (mass gap, time arrow, entropy)
 experiments/ Batch and ensemble execution helpers
 
-yaml
-Skopiuj kod
 
 Only scripts directly related to figures, tables, and claims in the paper are
 included.
@@ -52,6 +50,15 @@ included.
 No GPU acceleration or external numerical libraries are required.
 
 ---
+## Running the core tests
+
+From the repository root:
+
+```bash
+python tests/test_mass_gap_qcd.py
+python tests/test_arrow_of_time.py
+python tests/test_no_local_mass_time.py
+```
 
 ## Reproducibility
 
