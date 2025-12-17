@@ -1,3 +1,5 @@
+This repository corresponds to Zenodo DOI: 10.5281/zenodo.17961030
+
 # Global Spectral Theory of Everything
 
 This repository contains the reference implementation and numerical experiments
