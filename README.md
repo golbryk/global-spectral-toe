@@ -33,7 +33,7 @@ reference code.
 ## Structure
 
 src/ Core spectral transport and SU(3) connection code
-tests/ Minimal reproducibility scripts (mass gap, time arrow, entropy)
+tests/ Minimal reproducibility scripts (mass gap, time arrow, entropy, observer stability)
 experiments/ Batch and ensemble execution helpers
 
 
