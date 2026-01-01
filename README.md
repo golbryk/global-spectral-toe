@@ -70,6 +70,20 @@ Typical runtime on a modern CPU:
 - single test: seconds to minutes
 - ensemble runs: minutes
 
+### About tests U19501–U19575
+
+Tests U19501–U19575 referenced in the paper denote an internal ensemble of
+parameter variations (random seeds, system sizes, loop sizes, and observer
+projections) used to verify stability, robustness, and universality of the
+reported phenomena.
+
+They represent repeated realizations of the same global spectral construction,
+not distinct physical models.
+
+The public repository provides representative reference tests reproducing the
+qualitative results discussed in the paper, including the mass gap, arrow of
+time, absence of local mass/time, and observer stability.
+
 ---
 
 ## Citation
