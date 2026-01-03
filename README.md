@@ -66,6 +66,7 @@ From the repository root:
 python tests/test_mass_gap_qcd.py
 python tests/test_arrow_of_time.py
 python tests/test_no_local_mass_time.py
+```
 These scripts reproduce representative qualitative behaviors discussed in the
 associated Zenodo document within the global spectral framework.
 
