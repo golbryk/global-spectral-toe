@@ -1,0 +1,229 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{physics}
+\usepackage{geometry}
+\usepackage{hyperref}
+\geometry{margin=1in}
+
+\title{A Spectral--Relational Theory of Everything\\
+\large Core Mathematical Construction}
+\author{Grzegorz Olbryk}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+I present the core mathematical construction of a spectral--relational
+Theory of Everything (TOE), in which physical structure emerges from
+global spectral properties of a relational system rather than from
+local dynamics on a predefined spacetime.
+
+This document provides the axioms, definitions, and derived structures
+of the theory at the fundamental level. It does not attempt to provide
+a complete effective description of all observed physical phenomena.
+In particular, strongly chaotic many--body dynamics are not assumed
+to arise directly at the fundamental level.
+
+Validation tests, scope limitations, and falsification results,
+including Random Matrix Theory (RMT) analysis, are presented separately
+in companion documents and in the public repository.
+\end{abstract}
+
+\section{Foundational Axioms}
+
+\textbf{Axiom A1 (Spectral Ontology).} \\
+Physical reality is fully encoded in a finite set of positive spectra
+\begin{equation}
+\{\lambda^{(a)}_n\}_{n \in \mathbb{N}}, \qquad \lambda^{(a)}_n > 0,
+\end{equation}
+where the index \(a\) labels relational sectors.
+
+\textbf{Axiom A2 (Relationality).} \\
+Only relations between sectors are physically meaningful.
+Absolute scales are unobservable.
+
+\textbf{Axiom A3 (Log--Spectra).} \\
+The physically relevant quantities are logarithmic spectra
+\begin{equation}
+\ell^{(a)}_n := \log \lambda^{(a)}_n .
+\end{equation}
+
+\textbf{Axiom A4 (Spectral Gaps).} \\
+All dynamics are encoded in spectral gaps
+\begin{equation}
+\Delta^{(a)}_{mn} := \ell^{(a)}_m - \ell^{(a)}_n .
+\end{equation}
+
+These axioms define a global, background--independent structure.
+No spacetime, metric, Hamiltonian, or action principle is assumed.
+
+\section{Global Spectral Functional}
+
+I define a global spectral functional
+\begin{equation}
+\mathcal{L} = \sum_{a,b} w_{ab} \sum_{m,n}
+\left(\ell^{(a)}_m - \ell^{(b)}_n\right)^2 ,
+\end{equation}
+where \(w_{ab}\) are relational weights.
+
+The logarithmic form ensures scale invariance and compatibility
+with Axiom A2. The specific choice of weights is constrained
+by stability and covariance considerations but is not claimed
+to be mathematically unique.
+
+\section{Vacuum Configuration}
+
+A vacuum is defined as a stationary point of \(\mathcal{L}\)
+with respect to variations of \(\ell^{(a)}_n\).
+
+The vacuum condition yields a finite set of fixed points
+\begin{equation}
+c_a^\ast = \langle \ell^{(a)} \rangle ,
+\end{equation}
+defined up to a global additive constant.
+
+These fixed points characterize relational sectors of the theory.
+They do not by themselves constitute a complete effective
+description of particle interactions.
+
+\section{Emergent Mass Scale}
+
+A dimensionless mass scale arises from dominant spectral gaps:
+\begin{equation}
+m \sim \left| c_a^\ast - c_b^\ast \right| .
+\end{equation}
+
+This definition yields a hierarchy of mass scales without
+introducing fundamental mass parameters.
+Mass is intrinsically nonlocal and global in this framework.
+
+\section{Emergent Time and Irreversibility}
+
+Iterative evolution of spectral states,
+\begin{equation}
+\phi_{n+1} = T \phi_n ,
+\end{equation}
+where \(T\) is a global transport operator compatible with
+the spectral structure, generates irreversible behavior
+whenever the dominant eigenvalue satisfies \(|\lambda_0| < 1\).
+
+This produces an intrinsic arrow of time without assuming
+microscopic reversibility or local causality.
+
+\section{Entropy}
+
+A spectral entropy can be defined as
+\begin{equation}
+S = - \sum_i p_i \log p_i ,
+\end{equation}
+where \(p_i\) are normalized spectral weights.
+
+Monotonic behavior of \(S\) under forward spectral evolution
+provides a statistical characterization of time consistent
+with the emergent arrow.
+
+\section{Gauge--Like Sector Structure}
+
+Relational sectors characterized by distinct \(c_a^\ast\)
+exhibit stable clustering behavior.
+
+Certain minimal configurations are compatible with structures
+resembling
+\[
+U(1) \times SU(2) \times SU(3),
+\]
+but this identification is structural and suggestive rather
+than a proven necessity.
+
+The present construction does not exclude the existence of
+other mathematically consistent sector decompositions.
+
+\section{On Physical Constants}
+
+Numerical values of the fixed points \(c_a^\ast\) may exhibit
+proximity to known dimensionless physical parameters.
+
+Such numerical proximity is noted as suggestive but is not
+claimed as a definitive identification with experimentally
+measured constants at this stage.
+
+A complete mapping to observable couplings requires an
+explicit effective--theory construction.
+
+\section{Gravity and Long--Range Structure}
+
+The global, relational nature of mass implies an attractive
+long--range interaction at large scales.
+
+While this framework suggests an emergent gravitational
+behavior, a full derivation of Einstein--type dynamics is
+beyond the scope of the present work.
+
+\section{No--Go Results}
+
+The theory admits several structural no--go results:
+
+\begin{itemize}
+\item No local mass: restricting to local subregions eliminates
+spectral gaps.
+\item No local time: local spectra remain unit--modulus.
+\item No fundamental ergodicity: global relational constraints
+limit chaotic mixing.
+\end{itemize}
+
+These results follow directly from the axioms and do not depend
+on specific model realizations.
+
+\section{Relation to Validation Tests}
+
+Random Matrix Theory analyses of concrete excitation operators
+constructed within this framework show pseudo--integrable,
+mixed spectral statistics rather than universal GOE behavior.
+
+This result constrains the interpretation of the theory but
+does not contradict its role as a fundamental framework.
+
+Strong quantum chaos, if present in nature, is expected to
+emerge only at the level of effective many--body excitations
+built upon the present construction.
+
+\section{Conclusion}
+
+This document presents the core mathematical structure of a
+spectral--relational Theory of Everything.
+
+The theory is internally consistent, background--independent,
+and falsifiable. Its limits are explicit: it does not claim
+to directly reproduce all effective physical phenomena.
+
+Further work is required to construct effective theories of
+excitations and to establish detailed connections with
+phenomenology.
+
+\appendix
+\section{Example Numerical Fixed Points}
+
+For a specific choice of relational weights and truncation,
+the vacuum conditions yield numerical fixed points of the form:
+\begin{align}
+c_1^\ast &\approx 0.2358, \\
+c_2^\ast &\approx 0.3142, \\
+c_3^\ast &\approx 0.4501.
+\end{align}
+
+These values are presented solely as explicit examples of solutions
+of the vacuum equations for a particular model realization.
+
+Different choices of relational weights or truncations
+generically lead to different numerical fixed points.
+
+No claim is made that these numerical values are uniquely
+determined by the axioms alone or that they correspond
+one--to--one with experimentally measured constants.
+
+Their role is illustrative and structural rather than
+phenomenological.
+
+\end{document}

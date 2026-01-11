@@ -1,94 +1,167 @@
-This repository corresponds to Zenodo DOI: https://doi.org/10.5281/zenodo.17961030
+This repository corresponds to Zenodo DOI:
+https://doi.org/10.5281/zenodo.17961030
 
-⚠️ STATUS NOTICE
+======================================================================
+STATUS NOTICE
+======================================================================
 
-This repository documents a **superseded exploratory global spectral framework**.
-It is retained for transparency, reproducibility, and methodological reference
-and should **not** be interpreted as a final or complete Theory of Everything.
+This repository contains **Version 2** of the Global Spectral Theory of
+Everything (TOE).
 
-# Global Spectral Framework (Superseded)
+An earlier exploratory version (Zenodo record v1) has been **superseded**
+following explicit validation and falsification tests, most notably
+Random Matrix Theory (RMT) analysis. The present repository documents
+the corrected scope, limits, and core mathematical structure of the
+theory in a transparent and reproducible manner.
 
-This repository contains reference code and numerical experiments associated with:
+This work is **not presented as a complete effective theory of hadrons
+or strongly chaotic many-body systems**. Its claims are explicitly
+limited to the fundamental, background-independent level.
 
-**Grzegorz Olbryk**  
-*Global Spectral Theory of Everything*  
-Zenodo DOI: https://doi.org/10.5281/zenodo.17961030
+======================================================================
+GLOBAL SPECTRAL THEORY OF EVERYTHING — VERSION 2
+======================================================================
 
-Subsequent analysis indicates that global spectral constructions generically
-suffer from random-matrix universality and are therefore unsuitable as a final
-fundamental theory. This repository represents an early-stage investigation of
-such approaches.
+Author: Grzegorz Olbryk  
+Contact: g.olbryk@gmail.com  
 
----
+This repository accompanies the Zenodo record:
 
-## Repository Scope
+Grzegorz Olbryk  
+*Global Spectral Theory of Everything — Version 2: Scope, Validation,
+and Limits*  
+Zenodo (2026)  
+DOI: https://doi.org/10.5281/zenodo.17961030
 
-The code is intended to:
+----------------------------------------------------------------------
+DOCUMENTATION STRUCTURE
+----------------------------------------------------------------------
 
-- reproduce numerical experiments reported in the associated Zenodo record,
-- provide a transparent reference implementation of a global operator–based model,
-- allow independent inspection of spectral stability and irreversibility indicators,
-- serve as a controlled testbed for evaluating global spectral constructions.
+The documentation is intentionally split into three complementary parts:
 
-This is **not** a general-purpose simulation framework and **not** an endorsed
-physical theory.
+1. **Core mathematical construction**  
+   The complete axiomatic and mathematical formulation of the theory
+   is provided in the LaTeX source:
 
----
+   `global_spectral_toe_core.tex`
 
-## Structure
+   This file defines the foundational axioms, spectral functional,
+   vacuum structure, emergent mass and time, no-go results, and
+   example numerical fixed points.
 
-src/ Core global spectral transport code
-tests/ Minimal reproducibility scripts (spectral gaps, irreversibility,
-entropy-related observables, observer stability)
-experiments/ Batch and ensemble execution helpers
+2. **Validation and scope (Zenodo PDF)**  
+   The Zenodo record contains an overview document describing:
+   - scope and limits of applicability,
+   - falsification and validation tests,
+   - Random Matrix Theory (RMT) results,
+   - interpretation of negative results.
 
-yaml
-Skopiuj kod
+3. **Reproducible numerical tests (this repository)**  
+   All numerical experiments, raw logs, and figure-generation scripts
+   used in the validation are included here.
 
-Only scripts directly related to claims and figures in the Zenodo record are included.
+======================================================================
+REPOSITORY SCOPE
+======================================================================
 
----
+The purpose of this repository is to:
 
-## Requirements
+- provide a transparent reference implementation of a global
+  spectral–relational framework,
+- document explicit falsification and validation tests,
+- allow independent reproduction of Random Matrix Theory analyses,
+- clearly delineate the limits of the construction.
 
-- Python >= 3.10
+This repository is **not**:
+- a phenomenological model of hadrons,
+- a replacement for QCD or effective field theory,
+- a general-purpose simulation framework.
+
+======================================================================
+RANDOM MATRIX THEORY (RMT)
+======================================================================
+
+The directory `rmt/` contains all Random Matrix Theory analyses used to
+test the spectral properties of the theory.
+
+These tests demonstrate that:
+- the fundamental vacuum and minimal excitation operators exhibit
+  pseudo-integrable / mixed statistics,
+- universal GOE behavior is **not** obtained at the fundamental level,
+- increasing system size or coupling does not generically restore
+  full quantum chaos.
+
+These results falsify interpretations of the theory as a direct
+effective description of hadronic spectra, while remaining consistent
+with its intended fundamental scope.
+
+All RMT tests are reproducible from raw logs without data selection.
+
+======================================================================
+REQUIREMENTS
+======================================================================
+
+- Python >= 3.9
 - NumPy
+- CuPy with CUDA support (for GPU-based RMT tests)
+- matplotlib (for figure generation)
 
-No GPU acceleration or external numerical libraries are required.
-
----
-
-## Running the Reference Tests
+======================================================================
+RUNNING THE RMT TESTS
+======================================================================
 
 From the repository root:
-
 ```bash
-python tests/test_mass_gap_qcd.py
-python tests/test_arrow_of_time.py
-python tests/test_no_local_mass_time.py
+cd rmt
+python scaling_tests.py
+python generate_figures.py
 ```
-These scripts reproduce representative qualitative behaviors discussed in the
-associated Zenodo document within the global spectral framework.
+The generated figures will appear in `theory/figures/`.
 
-Reproducibility
-All experiments are deterministic up to ensemble averaging.
-Random seeds, system sizes, and operator constructions are explicitly specified.
+======================================================================
+REPRODUCIBILITY
+======================================================================
+
+All numerical experiments are deterministic up to explicitly stated
+random seeds and ensemble constructions.
 
 Reproducibility guarantees numerical consistency of the implementation,
-not physical validity or uniqueness.
+**not** physical uniqueness or phenomenological completeness.
 
-Citation
-If you use this code, please cite:
+Raw outputs are provided to avoid selection bias.
 
-Grzegorz Olbryk,
-Global Spectral Theory of Everything,
-Zenodo (2025), DOI: https://doi.org/10.5281/zenodo.17961030
+======================================================================
+USE OF COMPUTATIONAL ASSISTANCE
+======================================================================
 
-Note: This citation refers to a superseded global spectral formulation.
+Parts of the numerical experimentation, code generation, and manuscript
+preparation were performed with the assistance of large language models
+(LLMs), under the direct supervision of the author.
 
-License
+All scientific decisions, interpretations, and validations remain the
+responsibility of the author.
+
+======================================================================
+CITATION
+======================================================================
+
+If you use or reference this work, please cite:
+
+Grzegorz Olbryk,  
+*Global Spectral Theory of Everything — Version 2: Scope, Validation,
+and Limits*,  
+Zenodo (2026),  
+DOI: https://doi.org/10.5281/zenodo.17961030
+
+======================================================================
+LICENSE
+======================================================================
+
 MIT License (see LICENSE file).
 
-Contact
-Grzegorz Olbryk
+======================================================================
+CONTACT
+======================================================================
+
+Grzegorz Olbryk  
 g.olbryk@gmail.com
