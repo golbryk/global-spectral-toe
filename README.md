@@ -1,5 +1,5 @@
 This repository corresponds to Zenodo DOI:
-https://doi.org/10.5281/zenodo.17961030
+https://doi.org/10.5281/zenodo.18213696
 
 ======================================================================
 STATUS NOTICE
@@ -18,6 +18,9 @@ This work is **not presented as a complete effective theory of hadrons
 or strongly chaotic many-body systems**. Its claims are explicitly
 limited to the fundamental, background-independent level.
 
+The superseded Version 1 remains archived under:
+https://doi.org/10.5281/zenodo.17961030
+
 ======================================================================
 GLOBAL SPECTRAL THEORY OF EVERYTHING — VERSION 2
 ======================================================================
@@ -31,7 +34,7 @@ Grzegorz Olbryk
 *Global Spectral Theory of Everything — Version 2: Scope, Validation,
 and Limits*  
 Zenodo (2026)  
-DOI: https://doi.org/10.5281/zenodo.17961030
+DOI: https://doi.org/10.5281/zenodo.18213696
 
 ----------------------------------------------------------------------
 DOCUMENTATION STRUCTURE
@@ -116,24 +119,20 @@ cd rmt
 python scaling_tests.py
 python generate_figures.py
 ```
-The generated figures will appear in `theory/figures/`.
+The generated figures will appear in theory/figures/.
 
 ======================================================================
 REPRODUCIBILITY
-======================================================================
-
 All numerical experiments are deterministic up to explicitly stated
 random seeds and ensemble constructions.
 
 Reproducibility guarantees numerical consistency of the implementation,
-**not** physical uniqueness or phenomenological completeness.
+not physical uniqueness or phenomenological completeness.
 
 Raw outputs are provided to avoid selection bias.
 
 ======================================================================
 USE OF COMPUTATIONAL ASSISTANCE
-======================================================================
-
 Parts of the numerical experimentation, code generation, and manuscript
 preparation were performed with the assistance of large language models
 (LLMs), under the direct supervision of the author.
@@ -143,25 +142,19 @@ responsibility of the author.
 
 ======================================================================
 CITATION
-======================================================================
-
 If you use or reference this work, please cite:
 
-Grzegorz Olbryk,  
-*Global Spectral Theory of Everything — Version 2: Scope, Validation,
-and Limits*,  
-Zenodo (2026),  
-DOI: https://doi.org/10.5281/zenodo.17961030
+Grzegorz Olbryk,
+Global Spectral Theory of Everything — Version 2: Scope, Validation,
+and Limits,
+Zenodo (2026),
+DOI: https://doi.org/10.5281/zenodo.18213696
 
 ======================================================================
 LICENSE
-======================================================================
-
 MIT License (see LICENSE file).
 
 ======================================================================
 CONTACT
-======================================================================
-
-Grzegorz Olbryk  
+Grzegorz Olbryk
 g.olbryk@gmail.com
