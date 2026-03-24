@@ -22,6 +22,21 @@ the Stokes-RG correspondence: the lattice mass gap equals the distance
 from the real coupling axis to the dominant Stokes curve of the partition
 function, connecting constructive QFT with Lee-Yang zero theory.
 
+======================================================================
+COMPANION REPOSITORY: YANG-MILLS MASS GAP
+======================================================================
+
+The rigorous Yang-Mills mass gap proof (79pp, non-perturbative RG via
+free-energy convexity) is maintained in a separate repository:
+
+https://github.com/golbryk/hsmi-yang-mills
+
+That repository contains:
+- `mass_gap_rigorous.tex` — 4D SU(N) mass gap proof, all N>=2, all g^2>0
+- Fisher zeros programme (Papers Pi, Rho, Chi, Psi, Omega, Sigma, Tau, Xi)
+- Stokes concentration theorem (Paper Psi) — the mathematical engine
+  underlying the Stokes-RG correspondence in this repository
+
 The superseded Version 1 remains archived under:
 https://doi.org/10.5281/zenodo.17961030
 
