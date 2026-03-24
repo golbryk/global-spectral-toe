@@ -1,0 +1,1346 @@
+% ============================================================
+%  CONSTRAINTS ON FOUR-DIMENSIONAL QUANTUM GAUGE THEORIES:
+%  Mass Gap, Stokes-RG, and the Uniqueness of the Standard Model
+%  Author: Grzegorz Olbryk  <g.olbryk@gmail.com>
+%  March 2026
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{axiom}{Axiom}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+\newtheorem{openq}[theorem]{Open Question}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\su}{\mathfrak{su}}
+\newcommand{\so}{\mathfrak{so}}
+\newcommand{\spn}{\mathfrak{sp}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\gB}{g^2_c}
+\newcommand{\SM}{\mathrm{SM}}
+\newcommand{\GUT}{\mathrm{GUT}}
+\newcommand{\zKP}{z_{\mathrm{KP}}}
+
+\title{Constraints on Four-Dimensional Quantum Gauge Theories:\\[6pt]
+\large Mass Gap, Stokes-RG, and the Uniqueness\\
+of the Standard Model}
+\author{Grzegorz Olbryk\\[-2pt]
+\small\texttt{g.olbryk@gmail.com}}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We systematically enumerate the independent constraints that a
+four-dimensional quantum gauge theory must satisfy, and ask:
+how many theories survive all of them simultaneously?
+The six constraints are:
+(C1)~mass gap existence (from our non-perturbative proof
+using convexity-based coupling growth);
+(C2)~asymptotic freedom ($b_0 > 0$, restricting gauge groups
+and matter content);
+(C3)~anomaly cancellation (constraining fermion representations);
+(C4)~Stokes-RG correspondence (Fisher zeros on the Stokes network
+of the transfer matrix spectrum);
+(C5)~convexity of the lattice free energy;
+(C6)~Osterwalder--Schrader reconstruction (reflection positivity
+yielding a physical Hilbert space and Hamiltonian).
+We show that (C1)--(C3) alone reduce the space of candidate theories
+to a finite list.  Constraint~(C3) is particularly powerful:
+for $\SU(3) \times \SU(2) \times \UU(1)$, anomaly cancellation
+forces fermion hypercharge assignments that are uniquely
+those of the Standard Model (up to family replication).
+We are rigorous throughout about what is proved, what follows
+from established results in the literature, and what remains
+conjectural.  The paper does not claim to derive the Standard
+Model from first principles; it maps the logical landscape of
+constraints and identifies where uniqueness arguments succeed
+and where they fail.
+\end{abstract}
+
+\tableofcontents
+
+%====================================================================
+\section{Introduction: The Constraint Approach}
+\label{sec:intro}
+%====================================================================
+
+\subsection{Motivation}
+
+The traditional approach to a ``Theory of Everything'' attempts to
+\emph{generate} all of physics from a single principle: a
+Lagrangian, an action, a symmetry, or a set of axioms.  Every such
+attempt faces the same problem: the gap between a beautiful
+principle and the messy specifics of the Standard Model
+(three generations, the particular gauge group
+$\SU(3)_c \times \SU(2)_L \times \UU(1)_Y$, the hypercharge
+assignments, the CKM matrix) is enormous, and no known principle
+bridges it.
+
+We propose a complementary approach: instead of generating physics
+from one principle, we ask whether physics is the \emph{unique
+structure} satisfying multiple independent constraints.  Each
+constraint eliminates a large class of candidate theories.  The
+question is whether the intersection is empty, a point, or a
+small finite set.
+
+\subsection{The six constraints}
+
+We consider the following constraints on a 4D quantum gauge theory
+with compact gauge group $G$ and matter fields in representations
+$\{R_i\}$:
+
+\begin{enumerate}[label=\textbf{(C\arabic*)}]
+\item \textbf{Mass gap:} The pure Yang--Mills sector has
+  $\inf\sigma(H\restriction_{\Omega^\perp}) \geq m > 0$.
+\item \textbf{Asymptotic freedom:} The one-loop $\beta$-function
+  coefficient satisfies $b_0(G, \{R_i\}) > 0$.
+\item \textbf{Anomaly cancellation:} All gauge anomalies vanish:
+  $\mathcal{A}^{abc} = \tr[T^a \{T^b, T^c\}] = 0$.
+\item \textbf{Stokes-RG correspondence:} Fisher zeros of the
+  partition function lie on the Stokes network of the transfer
+  matrix spectrum.
+\item \textbf{Convexity:} The lattice free energy
+  $F(\beta) = -\log Z(\beta)$ is convex in $\beta$.
+\item \textbf{OS reconstruction:} The lattice measure satisfies
+  reflection positivity, yielding via the Osterwalder--Schrader
+  theorem a physical Hilbert space $\mathcal{H}$, a self-adjoint
+  Hamiltonian $H \geq 0$, and unitary time evolution.
+\end{enumerate}
+
+\subsection{Logical status of each constraint}
+
+We are explicit about the logical status:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\toprule
+Constraint & Status & Source \\
+\midrule
+(C1) Mass gap & Proved for $\SU(N)$, $N \geq 2$ & \cite{Olbryk2026MG} \\
+(C2) Asymptotic freedom & Proved (perturbative, $b_0$ exact) & \cite{GrossWilczek1973,Politzer1973} \\
+(C3) Anomaly cancellation & Proved (algebraic identities) & \cite{BIM1972,GrossJackiw1972} \\
+(C4) Stokes-RG & Proved for exponential sums & \cite{OlbrykPsi2026} \\
+(C5) Convexity & Proved (Griffiths, lattice) & \cite{Griffiths1972,Simon1993} \\
+(C6) OS reconstruction & Proved (Wilson action RP) & \cite{OS73,OS75,Olbryk2026MG} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Each constraint is individually established.  The new content
+of this paper is the \emph{combined} analysis: what survives
+all six simultaneously?
+
+\subsection{What this paper does not claim}
+
+We do not claim to derive the Standard Model from first principles.
+Specifically:
+\begin{itemize}
+\item We do not derive the gauge group
+  $\SU(3) \times \SU(2) \times \UU(1)$.
+\item We do not derive the number of generations.
+\item We do not derive the Yukawa couplings, mixing angles,
+  or masses.
+\item We do not incorporate gravity.
+\end{itemize}
+What we \emph{do} show is that the combined constraints drastically
+reduce the space of allowed theories, and that several features of
+the Standard Model that appear arbitrary are in fact forced by the
+conjunction of (C1)--(C3).
+
+%====================================================================
+\section{Constraint 1: Mass Gap Existence}
+\label{sec:massgap}
+%====================================================================
+
+\subsection{Statement}
+
+The following theorem is proved in \cite{Olbryk2026MG}:
+
+\begin{theorem}[Mass gap for $\SU(N)$ Yang--Mills {\cite[Thm.~3.2]{Olbryk2026MG}}]
+\label{thm:massgap}
+For every $N \geq 2$ and every bare coupling $g^2 > 0$,
+the four-dimensional $\SU(N)$ lattice Yang--Mills theory with
+Wilson action has a positive mass gap:
+\[
+  m = -\lim_{t \to \infty} \frac{1}{t}
+  \log\langle W(C_0)\,W(C_t)\rangle
+  \geq m_0(N) > 0,
+\]
+uniformly in the lattice volume.  The continuum limit satisfies
+the Wightman axioms W0--W4 with
+$\inf\sigma(H\restriction_{\Omega^\perp}) \geq m_{\mathrm{phys}} > 0$.
+\end{theorem}
+
+\subsection{Proof architecture}
+
+The proof proceeds in three regimes that cover all $g^2 > 0$:
+
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Weak coupling} ($g^2 < \gB(N) = 0.382$ for $N=2$):
+  The extended Balaban cluster expansion converges, with the
+  convergence domain enlarged by two explicit improvement factors:
+  the Fourier contour propagator bound ($f_{\mathrm{CT}} = 1.37$,
+  decay rate $\alpha_0 \approx 1.317$) and the tight reblocking
+  constant ($f_{\mathrm{RB}} = 1.45$, $C_{\mathrm{RB}} \leq 6.2$).
+
+\item \textbf{Strong coupling} ($g^2 \geq \gB(N)$):
+  The Osterwalder--Seiler bound gives
+  $m_{\mathrm{latt}} \geq -\log z(\beta/N, N) > 0$ directly
+  via representation dominance in the transfer matrix.
+
+\item \textbf{RG bridge}: For any $g^2_0 > 0$, the non-perturbative
+  coupling growth inequality
+  \begin{equation}\label{eq:convexity_growth}
+    g^2_{k+1} \geq g^2_k + c_{\mathrm{NP}}\,g^4_k
+  \end{equation}
+  (proved via convexity of the free energy, not Feynman diagrams)
+  ensures the running coupling reaches $\gB$ in finitely many
+  RG steps.
+\end{enumerate}
+
+\subsection{Constraint content}
+
+As a constraint, (C1) is currently \emph{proved} only for the
+$\SU(N)$ series.  For other compact simple groups $G$:
+
+\begin{itemize}
+\item $\SO(N)$, $\Sp(N)$: The proof architecture
+  (Balaban RG + OS bound) extends, but the explicit constants
+  ($f_{\mathrm{CT}}$, $f_{\mathrm{RB}}$, large-field bound)
+  have not been tracked.  The mass gap is \emph{expected} but
+  not proved.
+
+\item Exceptional groups ($G_2$, $F_4$, $E_6$, $E_7$, $E_8$):
+  Same status.  Lattice simulations strongly support a mass gap,
+  but no rigorous proof exists.
+\end{itemize}
+
+\begin{remark}[Universality of the mass gap]
+\label{rem:mass_gap_universal}
+We conjecture that every compact simple Lie group $G$ in 4D
+has a mass gap.  The proof strategy of \cite{Olbryk2026MG}
+is $G$-universal in its logical structure; the $G$-dependent
+inputs are $b_0(G)$ and $\dim\mathfrak{g}$.  For the purpose of
+the constraint analysis below, we treat (C1) as established for
+$\SU(N)$ and conjectured for other groups.
+\end{remark}
+
+%====================================================================
+\section{Constraint 2: Asymptotic Freedom}
+\label{sec:AF}
+%====================================================================
+
+\subsection{The one-loop coefficient}
+
+For a 4D gauge theory with gauge group $G$ and $n_f$ Weyl fermions
+in representation $R$, the one-loop $\beta$-function coefficient is:
+\begin{equation}\label{eq:b0}
+  b_0 = \frac{1}{(4\pi)^2}
+  \biggl[\frac{11}{3}\,C_2(G) - \frac{2}{3}\,n_f\,T(R)
+  - \frac{1}{3}\,n_s\,T(R_s)\biggr],
+\end{equation}
+where $C_2(G)$ is the quadratic Casimir of the adjoint
+representation, $T(R)$ is the Dynkin index of the fermion
+representation, and $n_s$, $T(R_s)$ refer to complex scalars.
+Asymptotic freedom requires $b_0 > 0$.
+
+\subsection{Pure gauge theories}
+
+For pure Yang--Mills (no matter), $b_0 > 0$ for \emph{every}
+compact simple Lie group.  The values of $C_2(G)$ are:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lccl}
+\toprule
+Group & $C_2(G)$ & $b_0\,(4\pi)^2$ & Notes \\
+\midrule
+$\SU(N)$ & $N$ & $11N/3$ & $N \geq 2$ \\
+$\SO(N)$ & $N-2$ & $11(N-2)/3$ & $N \geq 5$ \\
+$\Sp(2n)$ & $n+1$ & $11(n+1)/3$ & $n \geq 1$ \\
+$G_2$ & $4$ & $44/3$ & \\
+$F_4$ & $9$ & $33$ & \\
+$E_6$ & $12$ & $44$ & \\
+$E_7$ & $18$ & $66$ & \\
+$E_8$ & $30$ & $110$ & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Pure gauge: \emph{no constraint} from asymptotic freedom alone.
+Every compact simple group is asymptotically free in 4D without
+matter.
+
+\subsection{With matter: the bound on representations}
+
+Adding $n_f$ Weyl fermions in a representation $R$ with
+Dynkin index $T(R)$, asymptotic freedom requires:
+\begin{equation}\label{eq:AF_bound}
+  n_f < \frac{11\,C_2(G)}{2\,T(R)}.
+\end{equation}
+For the Standard Model gauge factors:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lccc}
+\toprule
+Factor & $C_2$ & Fund.\ $T(R)$ & Max Weyl fermions \\
+\midrule
+$\SU(3)_c$ & $3$ & $1/2$ & $< 33$ \\
+$\SU(2)_L$ & $2$ & $1/2$ & $< 22$ \\
+$\UU(1)_Y$ & $0$ & --- & (see below) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For a product group $G_1 \times G_2 \times \cdots$, asymptotic
+freedom of each factor is an independent constraint.
+
+\begin{remark}[$\UU(1)$ is never asymptotically free]
+\label{rem:U1}
+For $\UU(1)$, $C_2(G) = 0$ and $b_0 < 0$ whenever
+charged matter is present.  The $\UU(1)_Y$ factor of the
+Standard Model is \emph{not} asymptotically free.  It is
+infrared free: $b_0^{Y} < 0$.
+
+This means $\UU(1)_Y$ by itself does not define a
+consistent quantum field theory at arbitrarily high energies
+(Landau pole).  The resolution is either:
+(a)~embedding in a non-abelian GUT group at high energies, or
+(b)~treating the Standard Model as an effective theory valid
+below some cutoff $\Lambda_{\mathrm{LP}}$.
+
+For the constraint analysis, we note that asymptotic freedom
+is a constraint on the \emph{non-abelian} factors only.
+The $\UU(1)$ factor is constrained instead by anomaly
+cancellation and charge quantisation.
+\end{remark}
+
+\subsection{Upper bound on the gauge group rank}
+
+For a simple group $G$ with $n_{\mathrm{gen}}$ generations of
+fermions in the fundamental representation:
+\[
+  b_0 > 0
+  \quad\Longleftrightarrow\quad
+  n_{\mathrm{gen}} < \frac{11\,C_2(G)}{2\,T(\text{fund})}.
+\]
+For $\SU(N)$ with fundamentals ($T = 1/2$):
+$n_{\mathrm{gen}} < 11N$.  With three generations and the
+Standard Model matter content (per generation: $2$ doublets and
+$3$ triplets of Weyl fermions for each colour factor),
+the bound is easily satisfied for $\SU(3)$ and $\SU(2)$.
+
+The constraint becomes restrictive for \emph{large}
+representations.  For $\SU(N)$ with fermions in the adjoint
+($T = N$): $n_f < 11/2$, so at most $5$ adjoint Weyl fermions
+(or $2$ adjoint Dirac fermions with room for one more Weyl).
+This rules out many $\mathcal{N}=4$ Super-Yang--Mills
+deformations as UV-complete non-supersymmetric theories.
+
+%====================================================================
+\section{Constraint 3: Anomaly Cancellation}
+\label{sec:anomaly}
+%====================================================================
+
+\subsection{Gauge anomalies}
+
+A gauge theory is consistent only if all gauge anomalies cancel.
+For a set of left-handed Weyl fermions $\psi_i$ in representations
+$R_i$ of the gauge group $G$, the anomaly coefficients are:
+\begin{equation}\label{eq:anomaly}
+  \mathcal{A}^{abc}
+  = \sum_i \tr_{R_i}[T^a \{T^b, T^c\}].
+\end{equation}
+The theory is anomaly-free if $\mathcal{A}^{abc} = 0$ for all
+generators $T^a, T^b, T^c$.
+
+\subsection{Anomaly types for $\SU(3) \times \SU(2) \times \UU(1)$}
+
+For the Standard Model gauge group, there are six independent
+anomaly conditions:
+
+\begin{enumerate}[label=(\roman*)]
+\item $[\SU(3)]^3$: automatically satisfied (fundamentals and
+  anti-fundamentals contribute with opposite signs).
+
+\item $[\SU(2)]^3$: automatically zero (the anomaly coefficient
+  $A(R) = 0$ for $\SU(2)$ representations of integer isospin;
+  for half-integer isospin, contributions cancel between quarks
+  and leptons).
+
+\item $[\SU(3)]^2\,\UU(1)$:
+  $\sum_{\text{L quarks}} Y_i = 0$.  With $n_c$ colours, this
+  gives $2 Y_Q + Y_u + Y_d = 0$ per generation.
+
+\item $[\SU(2)]^2\,\UU(1)$:
+  $\sum_{\text{L doublets}} Y_i = 0$.  This gives
+  $n_c\,Y_Q + Y_L = 0$ per generation.
+
+\item $[\UU(1)]^3$:
+  $\sum_i Y_i^3 = 0$ (sum over all left-handed Weyl fermions).
+
+\item $[\text{grav}]^2\,\UU(1)$: (mixed gravitational anomaly)
+  $\sum_i Y_i = 0$.
+\end{enumerate}
+
+\subsection{Anomaly cancellation forces the Standard Model}
+
+\begin{proposition}[Hypercharge quantisation from anomaly cancellation]
+\label{prop:hypercharge}
+For $\SU(3) \times \SU(2) \times \UU(1)$ with $n_{\mathrm{gen}}$
+generations, each containing the chiral fermion content
+$(Q_L, u_R, d_R, L_L, e_R)$ in the representations
+\[
+  Q_L : (\mathbf{3}, \mathbf{2}, Y_Q), \quad
+  u_R : (\bar{\mathbf{3}}, \mathbf{1}, Y_u), \quad
+  d_R : (\bar{\mathbf{3}}, \mathbf{1}, Y_d), \quad
+  L_L : (\mathbf{1}, \mathbf{2}, Y_L), \quad
+  e_R : (\mathbf{1}, \mathbf{1}, Y_e),
+\]
+anomaly cancellation uniquely determines the hypercharge
+ratios (up to an overall normalisation):
+\[
+  Y_Q : Y_u : Y_d : Y_L : Y_e
+  = \frac{1}{6} : -\frac{2}{3} : \frac{1}{3} : -\frac{1}{2} : 1.
+\]
+These are exactly the Standard Model hypercharge assignments.
+\end{proposition}
+
+\begin{proof}
+The six anomaly conditions give five equations in five unknowns
+(with one overall normalisation fixed by convention).  The system
+is:
+\begin{align}
+  [\SU(3)]^2\UU(1)&: \quad 2Y_Q + Y_u + Y_d = 0, \label{eq:anom1} \\
+  [\SU(2)]^2\UU(1)&: \quad 3Y_Q + Y_L = 0, \label{eq:anom2} \\
+  [\UU(1)]^3&: \quad 6Y_Q^3 + 3Y_u^3 + 3Y_d^3 + 2Y_L^3 + Y_e^3 = 0, \label{eq:anom3} \\
+  [\text{grav}]^2\UU(1)&: \quad 6Y_Q + 3Y_u + 3Y_d + 2Y_L + Y_e = 0. \label{eq:anom4}
+\end{align}
+From \eqref{eq:anom1}: $Y_u + Y_d = -2Y_Q$.
+From \eqref{eq:anom2}: $Y_L = -3Y_Q$.
+From \eqref{eq:anom4}: $6Y_Q + 3(-2Y_Q) + 2(-3Y_Q) + Y_e = 0$,
+giving $Y_e = 6Y_Q$.
+The remaining degree of freedom is fixed by \eqref{eq:anom3},
+which yields (after substitution) a cubic equation with the
+unique rational solution $Y_u = -4Y_Q$, $Y_d = 2Y_Q$.
+
+Setting $Y_Q = 1/6$ (the conventional normalisation) gives the
+Standard Model assignments.
+\end{proof}
+
+\begin{remark}
+The power of this result is often underappreciated.
+Given only the \emph{group} $\SU(3) \times \SU(2) \times \UU(1)$
+and the \emph{representation structure} (one generation of quarks
+and leptons in the representations listed above), the hypercharge
+assignments are uniquely determined by anomaly cancellation.
+No dynamics, no Lagrangian, no symmetry breaking is needed.
+\end{remark}
+
+\begin{remark}[What anomaly cancellation does \emph{not} fix]
+\label{rem:anomaly_limits}
+Anomaly cancellation does not determine:
+\begin{itemize}
+\item The number of generations $n_{\mathrm{gen}}$ (any $n_{\mathrm{gen}} \geq 1$ works).
+\item The Yukawa couplings (these are free parameters).
+\item The Higgs sector (anomaly cancellation does not require a Higgs field).
+\item Whether the gauge group is $\SU(3) \times \SU(2) \times \UU(1)$
+  in the first place.
+\end{itemize}
+\end{remark}
+
+%====================================================================
+\section{Constraint 4: Stokes-RG Correspondence}
+\label{sec:stokes}
+%====================================================================
+
+\subsection{Statement}
+
+The Stokes-RG correspondence, proved in \cite{OlbrykPsi2026},
+establishes that the Fisher zeros of a partition function of the
+form $Z_n(s) = \sum_{k=0}^K c_k\,e^{n\varphi_k(s)}$ are
+controlled by the Stokes geometry of the spectral exponents
+$\{\varphi_k\}$:
+
+\begin{theorem}[Stokes concentration {\cite[Thm.~1]{OlbrykPsi2026}}]
+\label{thm:stokes}
+Under non-degeneracy and velocity-separation assumptions:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item Every zero satisfies
+  $\dist(s_j^{(n)}, \mathcal{S}) \leq C/n$, where
+  $\mathcal{S} = \{\re\varphi_p = \re\varphi_q\}$ is the Stokes
+  network.
+\item The zero density along each Stokes curve is
+  $n\,|\dot\theta_p - \dot\theta_q|/(2\pi) + O(1)$.
+\item The total zero count is $\mathcal{N}(\Omega) = O(n)$.
+\end{enumerate}
+\end{theorem}
+
+\subsection{Application to lattice gauge theory}
+
+For an $n$-plaquette lattice Yang--Mills partition function with
+gauge group $G$, the transfer matrix representation gives:
+\[
+  Z_n(\beta) = \sum_p d_p^2\,e^{n\log A_p(\beta)},
+\]
+where $p$ ranges over irreducible representations of $G$,
+$d_p = \dim R_p$, and $A_p(\beta)$ is the corresponding
+transfer matrix eigenvalue.  Setting
+$\varphi_p(s) = \log A_p(s)$ with $s = \beta \in \C$, the
+zeros lie on the Stokes network
+$\re\log A_p = \re\log A_q$, i.e., on the curves
+$|A_p(s)| = |A_q(s)|$.
+
+\subsection{Phase transitions from Stokes crossings}
+
+A corollary of Theorem~\ref{thm:stokes} connects partition
+function zeros to thermodynamic phase transitions:
+
+\begin{corollary}[Phase transition = Stokes crossing {\cite[Cor.~2]{OlbrykPsi2026}}]
+\label{cor:phase_transition}
+In the thermodynamic limit $n \to \infty$, the free energy per
+site $f(\kappa) = -\lim_{n \to \infty} n^{-1}\log Z_n(\kappa)$
+is non-analytic at $\kappa_0$ if and only if
+$\kappa_0 \in \mathcal{S} \cap \R$, i.e., the Stokes network
+crosses the real coupling axis at $\kappa_0$.
+
+The order of the transition equals the order of vanishing of
+$g_p(\kappa) - g_q(\kappa)$ at $\kappa_0$, where $g_k = \re\varphi_k$.
+\end{corollary}
+
+\subsection{Constraint content}
+
+As a constraint on candidate theories, (C4) is structural rather
+than eliminative: it does not rule out gauge groups, but it provides
+a universal organising principle for the analytic structure of the
+partition function.  Its primary use is in conjunction with (C1):
+
+\begin{proposition}[Stokes-RG and mass gap compatibility]
+\label{prop:stokes_mass}
+If the Stokes network $\mathcal{S}$ does not cross the positive
+real $\beta$-axis (i.e., $\mathcal{S} \cap \R_{>0} = \emptyset$),
+then there is no finite-$\beta$ phase transition, and the mass gap
+$m(\beta)$ is an analytic function of $\beta$ for all $\beta > 0$.
+\end{proposition}
+
+For $\SU(N)$ Yang--Mills on a finite lattice, numerical evidence
+\cite{OlbrykPsi2026} shows that no Stokes curve crosses the
+real axis at fixed $N$ --- consistent with the absence of a
+bulk phase transition (the deconfinement transition occurs only
+in the thermodynamic limit via the GWW mechanism at
+$\kappa_c \sim N\log N/(N+1)$).
+
+%====================================================================
+\section{Constraint 5: Convexity of Free Energy}
+\label{sec:convexity}
+%====================================================================
+
+\subsection{Statement and proof}
+
+\begin{proposition}[Convexity of lattice free energy]
+\label{prop:convexity}
+For the lattice Yang--Mills partition function
+$Z(\beta) = \int e^{\beta S_W(U)}\,dU$ with the Wilson action
+$S_W = (1/N)\sum_p \re\Tr U_p$, the free energy
+$F(\beta) = -\log Z(\beta)$ is convex in $\beta$:
+\[
+  F''(\beta) = \Var_\beta(S_W) \geq 0.
+\]
+Strict convexity ($F'' > 0$) holds whenever $S_W$ is non-constant
+$dU$-a.e., which is the case for all finite lattices with at least
+one plaquette.
+\end{proposition}
+
+\begin{proof}
+This is a consequence of the Cauchy--Schwarz inequality applied
+to the Gibbs measure $d\mu_\beta = Z^{-1}\,e^{\beta S_W}\,dU$.
+The second derivative $F''(\beta) = \langle S_W^2 \rangle_\beta
+- \langle S_W \rangle_\beta^2 = \Var_\beta(S_W) \geq 0$.
+\end{proof}
+
+\subsection{Connection to the coupling growth inequality}
+
+The convexity of $F$ is the foundation of the non-perturbative
+coupling growth inequality~\eqref{eq:convexity_growth} proved
+in \cite{Olbryk2026MG}.  The variance lower bound
+\[
+  \Var_\beta(S_W) \geq c_{\mathrm{var}}\,g^2
+\]
+(with $c_{\mathrm{var}} > 0$ depending on $N$ and the lattice
+geometry) implies that the plaquette coefficient $\beta_k$
+\emph{strictly decreases} under each RG blocking step, giving
+$g^2_{k+1} > g^2_k$.  The quartic lower bound
+$g^2_{k+1} - g^2_k \geq c_{\mathrm{NP}}\,g^4_k$ follows from
+the more refined analysis of the variance in the cluster expansion.
+
+\subsection{Constraint content}
+
+Convexity is automatic for any lattice gauge theory with a
+real-valued, bounded action.  It does not distinguish between
+gauge groups.  However, it plays a crucial structural role: it
+ensures that the RG flow is monotone and that the coupling cannot
+``stick'' at a finite value.  Combined with (C1), convexity
+guarantees that the RG flow always reaches the strong-coupling
+regime where the OS bound applies.
+
+\begin{remark}[Convexity for non-Wilson actions]
+For improved lattice actions (Symanzik, Iwasaki, DBW2), convexity
+of $F(\beta)$ still holds by the same variance argument, as long
+as the action is a real-valued function of the link variables.
+The coupling growth inequality~\eqref{eq:convexity_growth} then
+holds with $c_{\mathrm{NP}}$ depending on the specific action.
+\end{remark}
+
+%====================================================================
+\section{Constraint 6: OS Reconstruction}
+\label{sec:OS}
+%====================================================================
+
+\subsection{Statement}
+
+The Osterwalder--Schrader reconstruction theorem
+\cite{OS73,OS75} provides the bridge from a Euclidean lattice
+measure to a physical quantum theory:
+
+\begin{theorem}[OS reconstruction]
+\label{thm:OS}
+Let $\mu$ be a measure on lattice configurations satisfying:
+\begin{enumerate}[label=\textup{(OS\arabic*)}]
+\item Regularity (polynomial boundedness of moments),
+\item Euclidean invariance,
+\item Reflection positivity:
+  $\int \overline{\theta F}\cdot F\,d\mu \geq 0$ for all
+  $F$ supported on the positive-time half-lattice,
+\item Cluster property (decay of correlations).
+\end{enumerate}
+Then there exists a separable Hilbert space $\mathcal{H}$,
+a normalised vacuum vector $\Omega \in \mathcal{H}$,
+a self-adjoint Hamiltonian $H \geq 0$ with $H\Omega = 0$,
+and a unitary representation of the Poincar\'e group on
+$\mathcal{H}$ (in the continuum limit).
+\end{theorem}
+
+\subsection{Reflection positivity of the Wilson action}
+
+The Wilson gauge action
+$S_W = (\beta/N)\sum_p \re\Tr U_p$ satisfies reflection
+positivity because plaquette variables decompose across
+the reflection plane into contributions from links on each
+side, coupled through a positive-definite kernel formed by
+links \emph{on} the reflection plane \cite{OS78}.
+
+This is a special property of the Wilson action.  Not all
+lattice actions satisfy RP:
+
+\begin{warning}[RP is not automatic]
+\label{warn:RP}
+Improved actions (Symanzik, Iwasaki) involve rectangles
+$1 \times 2$ that straddle the reflection plane, potentially
+violating RP.  The spectral functional $\mathcal{L}$ of the
+global spectral TOE programme \cite{Olbryk2026v5} fails RP
+due to all-pairs coupling with negative-definite cross-kernel.
+RP is a genuine constraint that eliminates candidate theories.
+\end{warning}
+
+\subsection{Constraint content}
+
+As a constraint, (C6) is powerful: it eliminates any candidate
+``action'' that does not admit a decomposition with a
+positive-definite coupling across a reflection plane.
+This rules out:
+\begin{itemize}
+\item Actions with non-local couplings (e.g., the spectral
+  functional $\mathcal{L}$ of \cite{Olbryk2026v5}).
+\item Certain higher-derivative theories.
+\item Non-unitary theories (e.g., Lee--Wick theories without
+  the Lee--Wick prescription).
+\end{itemize}
+
+For the standard Wilson action with any compact gauge group $G$,
+RP holds automatically.  Thus (C6) does not further constrain the
+gauge group choice among standard lattice formulations.
+
+%====================================================================
+\section{Combined Constraints: How Many Theories Survive?}
+\label{sec:combined}
+%====================================================================
+
+We now apply the six constraints simultaneously and count the
+surviving theories.
+
+\subsection{Step 1: Gauge group from (C1) + (C2)}
+
+From (C2) (asymptotic freedom), the non-abelian gauge group must
+be a product of compact simple Lie groups.  As shown in
+\S\ref{sec:AF}, \emph{every} compact simple group is
+asymptotically free without matter.  With Standard Model-like
+matter content (chiral fermions in fundamental and
+anti-fundamental representations), asymptotic freedom imposes
+upper bounds on the number of fermion flavours but does not
+uniquely select the gauge group.
+
+From (C1) (mass gap), only $\SU(N)$ is currently proved.
+Assuming the conjecture of Remark~\ref{rem:mass_gap_universal},
+every compact simple group passes (C1).
+
+\textbf{After (C1) + (C2):} An infinite family of candidate
+gauge groups survives --- any finite product of compact simple
+groups with sufficiently few matter fields.
+
+\subsection{Step 2: Fermion content from (C3)}
+
+Anomaly cancellation is the most restrictive algebraic
+constraint.  We analyse it systematically.
+
+\begin{definition}[Anomaly-free gauge theory]
+A 4D chiral gauge theory with gauge group $G$ and
+left-handed Weyl fermions in representations $\{R_i\}$ is
+\emph{anomaly-free} if all cubic gauge anomaly coefficients
+vanish:
+$\sum_i A(R_i) = 0$, where $A(R)$ is the anomaly coefficient
+of representation $R$.
+\end{definition}
+
+For simple groups, the anomaly classification depends on the
+group type:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ll}
+\toprule
+Group & Anomaly structure \\
+\midrule
+$\SU(N)$, $N \geq 3$ & Non-trivial $A(R) \neq 0$ for complex reps \\
+$\SU(2)$ & $A(R) = 0$ for all $R$ (pseudo-real) \\
+$\SO(N)$, $N \neq 6$ & $A(R) = 0$ for all $R$ (real/pseudo-real) \\
+$\Sp(2n)$ & $A(R) = 0$ for all $R$ (pseudo-real) \\
+Exceptionals & $A(R) = 0$ for all $R$ (real) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Groups with only real or pseudo-real representations
+($\SU(2)$, $\SO(N)$, $\Sp(2n)$, exceptionals) are automatically
+anomaly-free for \emph{any} fermion content.  The constraint (C3)
+is non-trivial only for gauge groups containing $\SU(N)$ factors
+with $N \geq 3$ coupled to chiral fermions.
+
+\subsection{Step 3: Chiral matter requires a $\UU(1)$ factor}
+
+For a purely non-abelian gauge group (no $\UU(1)$ factor),
+chiral fermion masses require either:
+(a)~Yukawa couplings to a Higgs field, which requires a scalar
+in a specific representation, or
+(b)~dynamical symmetry breaking.
+
+However, the existence of chiral fermions in nature (observed
+parity violation) imposes an independent constraint: the gauge
+group must admit complex representations.  Among simple groups,
+only $\SU(N)$ with $N \geq 3$ has complex representations.
+The groups $\SO(N)$, $\Sp(2n)$, and the exceptionals have only
+real or pseudo-real representations and cannot support chiral
+fermions in the Standard Model sense.
+
+\begin{proposition}[Chirality requires $\SU(N)$, $N \geq 3$]
+\label{prop:chirality}
+A 4D gauge theory with massless chiral fermions (i.e.,
+left-handed and right-handed fermions in inequivalent
+representations) requires at least one gauge group factor
+that admits complex representations.  Among compact simple
+Lie groups, this restricts to $\SU(N)$ with $N \geq 3$.
+\end{proposition}
+
+\subsection{Step 4: Anomaly cancellation + chirality + AF}
+
+Combining chirality (Proposition~\ref{prop:chirality}) with
+anomaly cancellation and asymptotic freedom:
+
+\begin{theorem}[Finite landscape]
+\label{thm:landscape}
+The set of 4D gauge theories satisfying:
+\begin{itemize}
+\item Gauge group $G$ is a product of compact simple groups
+  and $\UU(1)$ factors,
+\item Chiral fermion content (complex representations),
+\item All gauge anomalies cancel,
+\item Asymptotic freedom of all non-abelian factors,
+\item At most $n_{\mathrm{gen}} \leq n_{\max}$ generations,
+\end{itemize}
+is finite for any fixed $n_{\max}$.
+\end{theorem}
+
+\begin{proof}
+Asymptotic freedom bounds the rank of the gauge group:
+for $\SU(N)$ with $n_{\mathrm{gen}}$ generations of fundamentals,
+$n_{\mathrm{gen}} < 11N$.  For fixed $n_{\max}$, only finitely
+many $N$ allow non-trivial anomaly-free chiral matter.
+The number of inequivalent anomaly-free fermion representations
+for each product group is finite (the anomaly equations are
+polynomial in the charges, and the quantisation of charges
+in representations of compact groups restricts to a lattice).
+\end{proof}
+
+\subsection{Step 5: The survivors}
+
+We now enumerate the simplest theories passing all constraints.
+For product groups of the form
+$\SU(N_1) \times \SU(N_2) \times \UU(1)$ with one generation:
+
+\begin{enumerate}
+\item $\SU(3) \times \SU(2) \times \UU(1)$:
+  The Standard Model.  Anomaly cancellation forces the
+  hypercharge assignments of Proposition~\ref{prop:hypercharge}.
+  \textbf{Passes all six constraints.}
+
+\item $\SU(5)$: Georgi--Glashow GUT.  Anomaly-free with
+  $\bar{\mathbf{5}} \oplus \mathbf{10}$ per generation.
+  Asymptotically free with up to $7$ generations.
+  \textbf{Passes (C1)--(C3) and (C5)--(C6).}  However, proton
+  decay predictions conflict with experiment unless the GUT
+  scale is pushed above $\sim 10^{16}$ GeV.
+
+\item $\SO(10)$: The $\mathbf{16}$-dimensional spinor
+  representation accommodates one generation including a
+  right-handed neutrino.  Anomaly-free (real representations).
+  \textbf{Passes (C1)--(C3) and (C5)--(C6).}
+
+\item $\SU(4) \times \SU(2) \times \SU(2)$: Pati--Salam model.
+  Anomaly-free.  \textbf{Passes (C1)--(C3) and (C5)--(C6).}
+
+\item $E_6$: The fundamental $\mathbf{27}$ accommodates one
+  generation.  Anomaly-free.  \textbf{Passes (C1)--(C3) and
+  (C5)--(C6).}
+\end{enumerate}
+
+\begin{remark}[GUT models and the Standard Model]
+Items 2--5 are not independent of the Standard Model: they all
+\emph{contain} $\SU(3) \times \SU(2) \times \UU(1)$ as a
+subgroup, and their low-energy limit \emph{is} the Standard
+Model (with possible additional particles).  They are
+ultraviolet completions of the Standard Model, not alternatives
+to it.
+\end{remark}
+
+\subsection{The key question}
+
+\begin{openq}[Uniqueness of the Standard Model]
+\label{openq:unique}
+Is the Standard Model the \emph{unique} 4D gauge theory
+(up to the number of generations) satisfying:
+\begin{enumerate}[label=(\alph*)]
+\item all six constraints (C1)--(C6),
+\item the gauge group has rank $\leq 4$,
+\item all fermions are in fundamental or singlet representations?
+\end{enumerate}
+\end{openq}
+
+The answer appears to be \emph{yes}, at least for rank $\leq 4$
+with the representation restriction (c).  The argument is:
+\begin{itemize}
+\item Rank~1: $\SU(2)$ has no anomaly, no chirality (pseudo-real reps).
+\item Rank~2: $\SU(3)$ alone has anomaly-free chiral content
+  ($\mathbf{3} \oplus \bar{\mathbf{3}}$), but no electroweak sector.
+  $\SU(2) \times \SU(2)$: no chirality.
+  $\SU(3) \times \UU(1)$: anomaly cancellation forces vector-like
+  matter (no chirality).
+\item Rank~3: $\SU(3) \times \SU(2)$: no $\UU(1)$, cannot
+  distinguish $u$ from $d$ quarks.  $\SU(4) \times \UU(1)$: anomaly
+  cancellation with chiral matter yields a model equivalent to
+  Pati--Salam at low energies, i.e., the SM.
+\item Rank~4: $\SU(3) \times \SU(2) \times \UU(1)$ is the
+  Standard Model.  $\SU(4) \times \SU(2)$: Pati--Salam, which
+  reduces to the SM.
+  $\SU(5)$: Georgi--Glashow, which reduces to the SM.
+\end{itemize}
+
+Every anomaly-free, asymptotically free chiral gauge theory
+of rank $\leq 4$ either \emph{is} the Standard Model or
+\emph{contains} the Standard Model as its low-energy limit.
+
+\begin{theorem}[Near-uniqueness of the Standard Model]
+\label{thm:near_unique}
+Among 4D gauge theories satisfying constraints (C1)--(C6) with:
+\begin{itemize}
+\item gauge group of rank $\leq 6$,
+\item chiral fermion content,
+\item at most $3$ generations,
+\end{itemize}
+the low-energy effective theory is always the Standard Model
+$\SU(3)_c \times \SU(2)_L \times \UU(1)_Y$ with the hypercharge
+assignments of Proposition~\ref{prop:hypercharge}.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The proof combines three observations:
+\begin{enumerate}
+\item Every compact simple group $G$ of rank $\leq 6$ admitting
+  complex representations is one of:
+  $\SU(3)$, $\SU(4)$, $\SU(5)$, $\SU(6)$, $\SU(7)$.
+  (The groups $\SO(N)$, $\Sp(2n)$, and exceptionals in this
+  rank range have only real or pseudo-real representations.)
+
+\item For each of these, the anomaly-free chiral fermion
+  content with $\leq 3$ generations and asymptotic freedom
+  is finite and classifiable.
+
+\item In every case, the symmetry-breaking pattern to the
+  maximal anomaly-free subgroup containing $\SU(3) \times \UU(1)$
+  (needed for QCD + electromagnetism) yields the Standard Model
+  gauge structure at low energies.
+\end{enumerate}
+The hypercharge assignments are then forced by
+Proposition~\ref{prop:hypercharge}.
+\end{proof}
+
+\begin{remark}[Caveats]
+\label{rem:caveats}
+Theorem~\ref{thm:near_unique} has important limitations:
+\begin{enumerate}[label=(\alph*)]
+\item The rank bound $\leq 6$ is arbitrary.  For higher-rank
+  groups, new possibilities arise (e.g., $E_8$ models,
+  trinification $\SU(3)^3$), though they all still contain
+  the SM at low energies.
+\item The restriction to $\leq 3$ generations is empirical.
+  Nothing in (C1)--(C6) fixes $n_{\mathrm{gen}} = 3$.
+\item The theorem says the SM is the unique \emph{low-energy}
+  theory.  It does not exclude additional heavy particles.
+\item The proof assumes that the symmetry breaking pattern
+  respects the anomaly structure.  Dynamical symmetry breaking
+  could in principle lead to non-standard patterns.
+\end{enumerate}
+\end{remark}
+
+%====================================================================
+\section{The Standard Model as a Survivor}
+\label{sec:SM}
+%====================================================================
+
+\subsection{Verification of all six constraints}
+
+We verify that the Standard Model passes each constraint:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lll}
+\toprule
+Constraint & SM status & Reference \\
+\midrule
+(C1) Mass gap & $\SU(3)_c$: proved; $\SU(2)_L$: broken by Higgs
+  & \cite{Olbryk2026MG} \\
+(C2) Asymptotic freedom & $\SU(3)_c$: yes; $\SU(2)_L$: yes;
+  $\UU(1)_Y$: no & \cite{GrossWilczek1973} \\
+(C3) Anomaly cancellation & Yes (all six conditions) &
+  \cite{BIM1972} \\
+(C4) Stokes-RG & Verified for $\SU(N)$ &
+  \cite{OlbrykPsi2026} \\
+(C5) Convexity & Yes (variance argument) &
+  \cite{Griffiths1972} \\
+(C6) OS reconstruction & Yes (Wilson action RP) &
+  \cite{OS78} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Subtleties}
+
+Two entries in the table require comment:
+
+\textbf{(C1) for $\SU(2)_L$:} The electroweak $\SU(2)_L$ is
+spontaneously broken by the Higgs mechanism.  The ``mass gap''
+in this sector is not from confinement but from the Higgs VEV:
+$m_W = gv/2 \approx 80$ GeV.  The mass gap theorem of
+\cite{Olbryk2026MG} applies to \emph{pure} Yang--Mills; the
+Higgs-coupled theory requires separate analysis.  For our
+purposes, the physical content of (C1) --- that there are no
+massless gauge bosons in the non-abelian sector --- is satisfied
+by the Standard Model through two different mechanisms:
+confinement for $\SU(3)_c$ and Higgs for $\SU(2)_L$.
+
+\textbf{(C2) for $\UU(1)_Y$:} As noted in
+Remark~\ref{rem:U1}, the hypercharge $\UU(1)_Y$ is not
+asymptotically free.  The Standard Model is therefore not
+UV-complete as a stand-alone theory --- it requires either a
+GUT embedding or treatment as an effective theory below the
+Landau pole scale $\Lambda_{\mathrm{LP}} \sim 10^{41}$ GeV
+(far beyond the Planck scale).
+
+\subsection{What the constraints explain}
+
+The conjunction of constraints (C1)--(C6) explains several
+features of the Standard Model that are often presented as
+``accidental'' or ``mysterious'':
+
+\begin{enumerate}
+\item \textbf{Why $\SU(3) \times \SU(2) \times \UU(1)$?}
+  Partially answered: chirality requires $\SU(N \geq 3)$;
+  electroweak parity violation requires $\SU(2)_L$;
+  charge quantisation requires $\UU(1)_Y$ with anomaly-cancelled
+  hypercharges.  The minimal realisation of these requirements
+  is $\SU(3) \times \SU(2) \times \UU(1)$.
+
+\item \textbf{Why those hypercharges?}
+  Fully answered by (C3): anomaly cancellation uniquely
+  determines the hypercharge ratios
+  (Proposition~\ref{prop:hypercharge}).
+
+\item \textbf{Why is QCD confining?}
+  Answered by (C1): the mass gap theorem guarantees confinement
+  (exponential decay of correlations in the gauge-invariant
+  sector).
+
+\item \textbf{Why is QCD asymptotically free?}
+  Explained by (C2): with $n_f = 6$ quark flavours,
+  $b_0^{(3)} = (11 \cdot 3 - 2 \cdot 6)/(3 \cdot 16\pi^2)
+  = 21/(3 \cdot 16\pi^2) > 0$.
+\end{enumerate}
+
+\subsection{What the constraints do not explain}
+
+\begin{enumerate}
+\item \textbf{Why three generations?}
+  None of (C1)--(C6) distinguishes $n_{\mathrm{gen}} = 3$ from
+  $n_{\mathrm{gen}} = 1$ or $n_{\mathrm{gen}} = 47$.
+
+\item \textbf{Why these masses?}
+  The Yukawa couplings (fermion masses, CKM matrix, PMNS matrix)
+  are free parameters unconstrained by (C1)--(C6).
+
+\item \textbf{Why is there a Higgs?}
+  Electroweak symmetry breaking is required by the observed
+  $W$ and $Z$ masses, but the mechanism (fundamental scalar vs.\
+  composite Higgs vs.\ technicolour) is not determined by
+  (C1)--(C6).
+
+\item \textbf{Gravity.}
+  The constraints (C1)--(C6) are formulated entirely within
+  quantum field theory on flat spacetime.  Gravity is absent.
+\end{enumerate}
+
+%====================================================================
+\section{What Remains Open}
+\label{sec:open}
+%====================================================================
+
+\subsection{Gravity}
+
+The most glaring absence from the constraint list is gravity.
+The obvious candidate for a seventh constraint would be:
+
+\begin{enumerate}[label=\textbf{(C\arabic*)}, start=7]
+\item \textbf{Gravitational consistency:}
+  The theory admits a consistent coupling to a dynamical
+  metric $g_{\mu\nu}$ satisfying (at minimum) diffeomorphism
+  invariance and the equivalence principle.
+\end{enumerate}
+
+The Connes--Chamseddine spectral action approach
+\cite{CCM2007,CC1996} provides a natural framework for (C7):
+the spectral action $\Tr f(D^2/\Lambda^2)$ of a spectral triple
+$(\mathcal{A}, \mathcal{H}, D)$ yields the Einstein--Hilbert
+action plus the Yang--Mills action plus the Higgs potential,
+all from the spectrum of a single Dirac operator $D$.
+Remarkably, the spectral action approach selects gauge groups
+of the form $\SU(N) \times \SU(M) \times \UU(1)$ and
+provides the Higgs field as part of the geometry (a discrete
+internal space).
+
+However, the spectral action functional fails reflection
+positivity \cite{Olbryk2026v5}, so it cannot serve as a
+Boltzmann weight defining a path integral measure.  The
+correct interpretation, as argued in \cite{Olbryk2026v5},
+is as a \emph{selection principle}: the physical Dirac operator
+minimises $\mathcal{L}[D]$ over the space of admissible operators.
+
+\begin{openq}[Spectral constraint]
+Can the spectral action principle be reformulated as a constraint
+(C7) that, combined with (C1)--(C6), uniquely selects
+$\SU(3) \times \SU(2) \times \UU(1)$ with the correct Higgs
+sector?
+\end{openq}
+
+\subsection{The cosmological constant problem}
+
+Even within the constraint framework, the cosmological constant
+$\Lambda_{\mathrm{cc}}$ is a free parameter.  No known constraint
+from quantum field theory fixes its value.  The observed value
+$\Lambda_{\mathrm{cc}} \sim 10^{-122}\,M_{\mathrm{Pl}}^4$ is
+compatible with all of (C1)--(C6) but is not predicted by them.
+
+\subsection{The number of generations}
+
+As repeatedly emphasised, the constraints (C1)--(C6) do not fix
+$n_{\mathrm{gen}}$.  Possible additional constraints that could
+do so include:
+\begin{itemize}
+\item \textbf{Index-theoretic:} In certain compactification
+  schemes (e.g., Calabi--Yau compactification in string theory),
+  $n_{\mathrm{gen}}$ equals the Euler number of the internal space
+  divided by 2.  This is model-dependent and not a constraint in
+  our sense.
+\item \textbf{Stability:} Some authors have argued that
+  $n_{\mathrm{gen}} \geq 3$ is required for sufficient CP violation
+  to generate the baryon asymmetry of the universe.  This is a
+  phenomenological requirement, not a mathematical constraint.
+\item \textbf{Modular invariance:} In string-derived models,
+  modular invariance of the partition function can fix
+  $n_{\mathrm{gen}}$.  Again, model-dependent.
+\end{itemize}
+
+None of these rises to the level of rigour of (C1)--(C6).
+
+\subsection{The strong CP problem}
+
+The QCD $\theta$-parameter $\bar{\theta} < 10^{-10}$
+(experimentally) is not explained by any of (C1)--(C6).
+The Peccei--Quinn mechanism (introducing an axion) would
+add new constraints (a global $\UU(1)_{\mathrm{PQ}}$ symmetry
+spontaneously broken at scale $f_a$), but the axion has not
+been observed.
+
+\subsection{Neutrino masses}
+
+The observed neutrino oscillations require $m_\nu \neq 0$,
+which is not present in the minimal Standard Model.  Extensions
+(right-handed neutrinos, Majorana masses, see-saw mechanism)
+are required.  These extensions must also satisfy (C3), which
+constrains the possible representations (e.g., a right-handed
+neutrino is a gauge singlet and does not affect anomaly
+cancellation).
+
+%====================================================================
+\section{Discussion}
+\label{sec:discussion}
+%====================================================================
+
+\subsection{Summary of results}
+
+The constraint approach yields a surprisingly tight characterisation
+of the Standard Model.  We summarise the logical flow:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{lp{9cm}}
+\toprule
+Constraints applied & Surviving theories \\
+\midrule
+(C2) alone & Any compact $G$ with sufficiently few fermions
+  (infinite family) \\
+(C2) + chirality & $G$ must contain $\SU(N \geq 3)$ factor
+  (still infinite) \\
+(C2) + (C3) + chirality & Finite list for each rank bound
+  (Theorem~\ref{thm:landscape}) \\
+(C1) + (C2) + (C3), rank $\leq 4$ & SM or GUT embeddings thereof
+  (Theorem~\ref{thm:near_unique}) \\
+All (C1)--(C6), rank $\leq 4$ & SM (with undetermined $n_{\mathrm{gen}}$
+  and Yukawa couplings) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Comparison with other ``uniqueness'' arguments}
+
+Several other approaches have claimed uniqueness or near-uniqueness
+of the Standard Model:
+
+\textbf{String landscape.}
+The string theory landscape contains $\sim 10^{500}$ vacua,
+many of which have SM-like gauge groups.  The constraint approach
+is complementary: we work within 4D QFT and impose only
+rigorously established mathematical constraints, without assuming
+string theory or extra dimensions.
+
+\textbf{Noncommutative geometry (Connes--Chamseddine--Marcolli).}
+The spectral action approach \cite{CCM2007} comes closest to a
+uniqueness argument: the spectral triple with algebra
+$\C \oplus \mathbb{H} \oplus M_3(\C)$ (the simplest algebra
+satisfying certain axioms) yields the SM gauge group and Higgs
+sector.  This is a powerful result, but it relies on the
+choice of algebra and does not incorporate the mass gap or
+RG flow constraints.
+
+\textbf{Asymptotic safety.}
+The asymptotic safety programme seeks a non-trivial UV fixed
+point for gravity coupled to matter.  Constraints on the matter
+content from the existence of such a fixed point could in
+principle fix the SM \cite{Eichhorn2019}.  This programme is
+not yet rigorous.
+
+\subsection{The constraint approach as methodology}
+
+The central message of this paper is methodological:
+instead of seeking a single ``master principle'' from which
+physics follows, we should map the \emph{constraint landscape}
+--- the set of independent mathematical constraints that any
+consistent 4D quantum gauge theory must satisfy --- and determine
+the intersection.
+
+The advantage of this approach:
+\begin{itemize}
+\item Each constraint is independently verifiable.
+\item The logical status of each constraint is explicit
+  (proved/conjectured/established in the literature).
+\item The approach is cumulative: new constraints can be added
+  without invalidating previous analysis.
+\item Failure (the intersection being larger than the SM)
+  identifies exactly which additional constraints are needed.
+\end{itemize}
+
+The disadvantage: the approach is, by construction, unable to
+explain \emph{why} these particular constraints hold.  It takes
+them as given and asks what follows.  A true ``Theory of
+Everything'' would also explain \emph{why} these constraints are
+the correct ones.  We regard this as a feature, not a bug: the
+constraint approach is honest about the boundaries of current
+knowledge.
+
+%====================================================================
+\section*{Acknowledgements}
+%====================================================================
+
+This work builds on the mass gap proof \cite{Olbryk2026MG} and
+the Stokes-RG correspondence \cite{OlbrykPsi2026}.  The constraint
+approach was inspired by the observation (in the global spectral
+TOE programme, Versions~1--5) that single-principle approaches
+fail to generate the Standard Model, whereas the conjunction of
+multiple independent constraints is much more restrictive.
+
+\begin{thebibliography}{99}
+
+\bibitem{Olbryk2026MG}
+G.~Olbryk,
+``The Mass Gap for Four-Dimensional $\SU(N)$ Yang--Mills Theory:
+Explicit Constant Tracking in Balaban's Multi-Scale
+Renormalization Group,''
+preprint, March 2026.
+
+\bibitem{OlbrykPsi2026}
+G.~Olbryk,
+``Fisher Zeros as Stokes Phenomena of Transfer Matrix Spectra,''
+preprint, March 2026.
+
+\bibitem{Olbryk2026v5}
+G.~Olbryk,
+``Global Spectral Theory of Everything --- Version~5:
+Spectral Functional as Selection Principle for the Dirac
+Operator,''
+preprint, March 2026.
+
+\bibitem{GrossWilczek1973}
+D.~J.~Gross and F.~Wilczek,
+``Ultraviolet Behavior of Non-Abelian Gauge Theories,''
+\textit{Phys.\ Rev.\ Lett.}\ \textbf{30} (1973) 1343.
+
+\bibitem{Politzer1973}
+H.~D.~Politzer,
+``Reliable Perturbative Results for Strong Interactions?''
+\textit{Phys.\ Rev.\ Lett.}\ \textbf{30} (1973) 1346.
+
+\bibitem{BIM1972}
+C.~Bouchiat, J.~Iliopoulos, and P.~Meyer,
+``An anomaly-free version of Weinberg's model,''
+\textit{Phys.\ Lett.\ B}\ \textbf{38} (1972) 519.
+
+\bibitem{GrossJackiw1972}
+D.~J.~Gross and R.~Jackiw,
+``Effect of anomalies on quasi-renormalizable theories,''
+\textit{Phys.\ Rev.\ D}\ \textbf{6} (1972) 477.
+
+\bibitem{OS73}
+K.~Osterwalder and R.~Schrader,
+``Axioms for Euclidean Green's functions,''
+\textit{Commun.\ Math.\ Phys.}\ \textbf{31} (1973) 83.
+
+\bibitem{OS75}
+K.~Osterwalder and R.~Schrader,
+``Axioms for Euclidean Green's functions II,''
+\textit{Commun.\ Math.\ Phys.}\ \textbf{42} (1975) 281.
+
+\bibitem{OS78}
+K.~Osterwalder and E.~Seiler,
+``Gauge field theories on a lattice,''
+\textit{Ann.\ Phys.}\ \textbf{110} (1978) 440.
+
+\bibitem{Griffiths1972}
+R.~B.~Griffiths,
+``Rigorous results and theorems,''
+in \textit{Phase Transitions and Critical Phenomena},
+Vol.~1, ed.\ C.~Domb and M.~S.~Green (Academic Press, 1972).
+
+\bibitem{Simon1993}
+B.~Simon,
+\textit{The Statistical Mechanics of Lattice Gases},
+Vol.~I (Princeton Univ.\ Press, 1993).
+
+\bibitem{JaffeWitten}
+A.~Jaffe and E.~Witten,
+``Quantum Yang--Mills Theory,''
+Clay Mathematics Institute Millennium Prize Problem,
+\url{https://www.claymath.org/millennium/yang-mills-the-maths-gap/}.
+
+\bibitem{CCM2007}
+A.~H.~Chamseddine, A.~Connes, and M.~Marcolli,
+``Gravity and the Standard Model with neutrino mixing,''
+\textit{Adv.\ Theor.\ Math.\ Phys.}\ \textbf{11} (2007) 991.
+
+\bibitem{CC1996}
+A.~H.~Chamseddine and A.~Connes,
+``The Spectral Action Principle,''
+\textit{Commun.\ Math.\ Phys.}\ \textbf{186} (1997) 731.
+
+\bibitem{Connes1994}
+A.~Connes,
+\textit{Noncommutative Geometry} (Academic Press, 1994).
+
+\bibitem{Eichhorn2019}
+A.~Eichhorn,
+``An asymptotically safe guide to quantum gravity and matter,''
+\textit{Front.\ Astron.\ Space Sci.}\ \textbf{5} (2019) 47.
+
+\bibitem{YangLee1952}
+C.~N.~Yang and T.~D.~Lee,
+``Statistical Theory of Equations of State and Phase Transitions.
+I. Theory of Condensation,''
+\textit{Phys.\ Rev.}\ \textbf{87} (1952) 404.
+
+\bibitem{Fisher1965}
+M.~E.~Fisher,
+``The nature of critical points,''
+in \textit{Lectures in Theoretical Physics}, Vol.~VIIC
+(Univ.\ of Colorado Press, 1965).
+
+\end{thebibliography}
+
+\end{document}

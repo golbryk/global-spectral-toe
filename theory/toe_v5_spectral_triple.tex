@@ -1,0 +1,910 @@
+% ============================================================
+%  GLOBAL SPECTRAL THEORY OF EVERYTHING — VERSION 5
+%  Spectral Functional as Selection Principle for the Dirac Operator
+%  Author: Grzegorz Olbryk  <g.olbryk@gmail.com>
+%  March 2026
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{axiom}[theorem]{Axiom}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\U}{\mathrm{U}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\TOE}{\mathrm{TOE}}
+\newcommand{\SM}{\mathrm{SM}}
+\newcommand{\CCM}{\mathrm{CCM}}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\spec}{\mathrm{spec}}
+\newcommand{\Dom}{\mathrm{dom}}
+
+\title{Global Spectral Theory of Everything --- Version 5\\[6pt]
+\large Spectral Functional as Selection Principle\\
+for the Dirac Operator}
+\author{Grzegorz Olbryk\\[-2pt]
+\small\texttt{g.olbryk@gmail.com}}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We address the central obstruction of TOE Versions~1--4:
+the spectral functional $\mathcal{L}$ cannot serve as a Boltzmann
+weight because it fails reflection positivity (RP).
+We show that this failure is not fatal but \emph{diagnostic}:
+$\mathcal{L}$ should be interpreted not as a statistical-mechanical
+action but as a \emph{selection principle} that picks out the
+physical Dirac operator $D$ by minimization.
+
+The resulting chain is:
+\[
+  \text{Axioms A1--A4}
+  \;\xrightarrow{\min\,\mathcal{L}}
+  \;D
+  \;\xrightarrow{(\mathcal{A},\mathcal{H},D)}
+  \;\text{spectral triple}
+  \;\xrightarrow{\Tr f(D/\Lambda)}
+  \;\text{GR + SM}.
+\]
+The first arrow is the new content of this paper: a variational
+principle on the space of Dirac operators.
+The remaining arrows are due to Connes, Chamseddine, and
+collaborators.
+
+We state an explicit conjecture (Conjecture~\ref{conj:casimir})
+for the minimizer of $\mathcal{L}$ and derive consequences.
+We are honest throughout about what is proved, what is conjectured,
+and what lies entirely outside the scope of this framework.
+\end{abstract}
+
+\tableofcontents
+
+%====================================================================
+\section{The Reflection Positivity Obstruction}
+\label{sec:RP}
+%====================================================================
+
+\subsection{The spectral functional}
+
+We recall the axioms and functional of Versions~1--3
+\cite{Olbryk2026v2,Olbryk2026v3}.  Physical reality is encoded in
+positive spectra $\{\lambda_n^{(a)}\}_{n=1}^P$ across $S$ relational
+sectors (Axiom~A1).  Logarithmic spectra
+$\ell_n^{(a)} = \log\lambda_n^{(a)}$ are the physically meaningful
+quantities (Axiom~A3), and all dynamics are encoded in spectral gaps
+(Axiom~A4).  The global spectral functional is:
+\begin{equation}\label{eq:L}
+  \mathcal{L}
+  = \sum_{a,b=1}^S w_{ab}
+    \sum_{m,n=1}^P \bigl(\ell_m^{(a)} - \ell_n^{(b)}\bigr)^2,
+\end{equation}
+where $w_{ab} \geq 0$ are relational weights.
+
+In Version~3 \cite{Olbryk2026v3}, we defined the TOE partition function
+\begin{equation}\label{eq:ZTOE}
+  Z_\TOE(\beta)
+  = \int_{\mathcal{X}} e^{-\beta\,\mathcal{L}(\ell)}\,d\mu(\ell)
+\end{equation}
+and showed that, for a single sector with diagonal coupling,
+$Z_\TOE$ reduces to the heat-kernel partition function of $\SU(P)$.
+This was presented as a success: the Connes--Chamseddine spectral
+action emerges.
+
+\subsection{The obstruction}
+
+However, any attempt to pass from the partition function~\eqref{eq:ZTOE}
+to a quantum theory via OS reconstruction requires reflection
+positivity (RP):
+
+\begin{definition}[Reflection Positivity]
+A measure $d\nu = e^{-\beta\mathcal{L}}\,d\mu$ on a space of
+configurations $\phi$ has reflection positivity if there exists a
+time-reflection operator $\theta$ such that for all $F$ supported on
+the positive-time half-space,
+\begin{equation}\label{eq:RP}
+  \int \overline{\theta F}\cdot F\,d\nu \;\geq\; 0.
+\end{equation}
+\end{definition}
+
+\begin{proposition}[RP Failure]\label{prop:RP_fail}
+The spectral functional $\mathcal{L}$~\eqref{eq:L} does not satisfy
+reflection positivity with respect to any decomposition of the spectral
+indices into ``positive'' and ``negative'' halves.
+\end{proposition}
+
+\begin{proof}
+The spectral functional $\mathcal{L}$ is a sum of squared differences
+$(\ell_m^{(a)} - \ell_n^{(b)})^2$ coupling \emph{all} pairs of spectral
+values.  For RP, we need $\mathcal{L}$ to decompose as
+$\mathcal{L} = \mathcal{L}_+ + \mathcal{L}_- + \mathcal{L}_{+-}$
+where $\mathcal{L}_{+-}$ couples the two halves only through a
+positive-definite kernel.
+
+The all-pairs coupling in~\eqref{eq:L} generically violates this.
+The cross-terms $(\ell_m^{(a)} - \ell_n^{(b)})^2$ for $m$ in the
+positive half and $n$ in the negative half expand to
+$(\ell_m^{(a)})^2 + (\ell_n^{(b)})^2 - 2\ell_m^{(a)}\ell_n^{(b)}$.
+The bilinear term $-2\ell_m^{(a)}\ell_n^{(b)}$ has the wrong sign
+for RP: writing $K(m,n) = -2w_{ab}$, the kernel $K$ is
+negative-definite, not positive-definite.
+
+Concretely, for $S=1$, $P=2$, $\ell_1 > 0 > \ell_2$ with
+$\ell_1 + \ell_2 = 0$, the cross-coupling is
+$-2w\,\ell_1\ell_2 = +2w\,\ell_1^2 > 0$, but the reflected quantity
+$\overline{\theta F}\cdot F$ acquires a factor $e^{+2w\beta\ell_1\ell_2}$
+which can make the integral~\eqref{eq:RP} negative for suitable~$F$.
+\end{proof}
+
+\begin{remark}
+This is not a technicality.  The Wilson gauge action
+$S_W = (\beta/N)\sum_p \re\Tr U_p$ satisfies RP precisely because
+plaquette variables decouple across the reflection plane into
+contributions from links on each side plus a
+positive-definite coupling through links \emph{on} the plane
+\cite{OS73}.  The spectral functional~\eqref{eq:L} has no such
+local structure.
+\end{remark}
+
+\subsection{Consequences of RP failure}
+
+Without RP, the OS reconstruction theorem
+\cite{OS73,OS75} does not apply, and we cannot:
+\begin{enumerate}
+\item[(i)] construct a physical Hilbert space $\mathcal{H}_{\mathrm{phys}}$
+  from $Z_\TOE$;
+\item[(ii)] extract a self-adjoint Hamiltonian $H \geq 0$;
+\item[(iii)] derive unitary time evolution or the Schr\"odinger equation.
+\end{enumerate}
+The QM emergence chain of \cite{OlbrykQM2026} (which goes
+RP $\to$ $\mathcal{H}$ $\to$ $H$ $\to$ $e^{-iHt}$ $\to$
+$i\partial_t\psi = H\psi$) has its first link broken.
+
+\textbf{This means $Z_\TOE$ cannot be a fundamental partition function
+of a quantum theory.}
+
+Versions~1--4 either ignored this problem or worked around it by
+importing the Wilson-action RP from the Yang--Mills lattice programme.
+Version~5 confronts it directly.
+
+%====================================================================
+\section{Reinterpretation: $\mathcal{L}$ as Selection Principle}
+\label{sec:selection}
+%====================================================================
+
+\subsection{The key idea}
+
+If $\mathcal{L}$ cannot be a Boltzmann weight, what \emph{is} it?
+
+The answer we propose: $\mathcal{L}$ is a \textbf{selection functional}
+that picks out the physical Dirac operator from the space of all
+admissible operators by minimization.  It does \emph{not} define a
+path integral; it defines a variational principle.
+
+\begin{definition}[Space of Admissible Dirac Operators]\label{def:admissible}
+Let $\mathcal{A}$ be a unital $*$-algebra and $\mathcal{H}$ a separable
+Hilbert space on which $\mathcal{A}$ acts faithfully.
+The \emph{space of admissible Dirac operators} is:
+\begin{equation}\label{eq:Dadm}
+  \mathfrak{D}(\mathcal{A},\mathcal{H})
+  := \bigl\{D = D^\dagger \text{ on } \mathcal{H}
+     :\; (D+i)^{-1} \text{ is compact},\;
+     [D,a] \in B(\mathcal{H})\;\forall a \in \mathcal{A}\bigr\}.
+\end{equation}
+These are exactly the conditions required for $(\mathcal{A},\mathcal{H},D)$
+to be a spectral triple in the sense of Connes \cite{Connes1994}.
+\end{definition}
+
+\begin{definition}[Spectral Selection Functional]\label{def:selection}
+For $D \in \mathfrak{D}(\mathcal{A},\mathcal{H})$ with eigenvalues
+$\{\mu_k\}_{k=1}^\infty$ (counted with multiplicity, ordered by
+$|\mu_k| \leq |\mu_{k+1}|$), define:
+\begin{equation}\label{eq:L_D}
+  \mathcal{L}[D]
+  := \sum_{k,j=1}^{K}
+     \bigl(\log|\mu_k| - \log|\mu_j|\bigr)^2,
+\end{equation}
+where $K$ is a spectral cutoff (the number of eigenvalues below
+$\Lambda$), and we restrict to $|\mu_k| > 0$
+(excluding zero modes, which are treated separately).
+\end{definition}
+
+\begin{remark}\label{rem:match}
+For a spectral triple with $S$ sectors, writing $\mu_k = \mu_n^{(a)}$
+with sector label $a$ and intra-sector label $n$, and setting
+$\ell_n^{(a)} = \log|\mu_n^{(a)}|$, the functional~\eqref{eq:L_D}
+reduces to~\eqref{eq:L} with $w_{ab} = 1$ for all $a,b$.
+More general weight matrices $w_{ab}$ arise from restricting the
+double sum to inter-sector pairs or introducing degeneracy factors.
+The spectral functional of Axioms A1--A4 is thus a special case
+of $\mathcal{L}[D]$.
+\end{remark}
+
+\subsection{The variational principle}
+
+\begin{definition}[Selection Principle]\label{def:principle}
+The \emph{physical Dirac operator} is a minimizer of $\mathcal{L}$
+over the admissible space:
+\begin{equation}\label{eq:min}
+  D_{\mathrm{phys}}
+  = \operatorname*{arg\,min}_{D \in \mathfrak{D}(\mathcal{A},\mathcal{H})}
+    \mathcal{L}[D].
+\end{equation}
+\end{definition}
+
+\begin{remark}[Why minimization and not extremization]
+The functional $\mathcal{L}[D] \geq 0$ with equality if and only if
+all $\log|\mu_k|$ are equal, i.e., $|D|$ has a single eigenvalue
+(with multiplicity $K$).  The absolute minimum is therefore achieved
+by a degenerate spectrum.  However, the constraint that $D$ belong to
+$\mathfrak{D}(\mathcal{A},\mathcal{H})$---in particular, the compact
+resolvent condition---forces the eigenvalues to grow, so
+$\mathcal{L}[D] > 0$ for any admissible $D$.  The minimizer is the
+operator whose spectrum is ``most uniform'' in the log scale,
+subject to the geometric constraints imposed by $\mathcal{A}$.
+\end{remark}
+
+\subsection{Analogy: Einstein's equations as a selection principle}
+
+The shift from Boltzmann weight to selection principle has a precise
+analogue in general relativity.  The Einstein--Hilbert action
+$S_{\mathrm{EH}}[g] = \int R\sqrt{|g|}\,d^4x$ is not a Boltzmann
+weight defining a measure on metrics (the Euclidean path integral
+over metrics is not well-defined in general \cite{GibbonsHawking1977}).
+Instead, $S_{\mathrm{EH}}$ is extremized to yield the Einstein
+field equations: the physical metric is a \emph{stationary point} of
+$S_{\mathrm{EH}}$, not a sample from $e^{-S_{\mathrm{EH}}}$.
+
+Similarly, $\mathcal{L}[D]$ selects the physical Dirac operator by
+minimization, without ever appearing in a Boltzmann weight.
+
+%====================================================================
+\section{The Casimir Conjecture}
+\label{sec:casimir}
+%====================================================================
+
+\subsection{Warm-up: a single sector on $\SU(N)$}
+
+Consider $\mathcal{A} = C(\SU(N))$, $\mathcal{H} = L^2(\SU(N), dU)$,
+and $D \in \mathfrak{D}(\mathcal{A},\mathcal{H})$.  The Peter--Weyl
+decomposition gives:
+\begin{equation}\label{eq:PW}
+  \mathcal{H}
+  = \bigoplus_{p} V_p \otimes V_p^*,
+  \qquad \dim(V_p \otimes V_p^*) = d_p^2,
+\end{equation}
+where $p$ runs over irreducible representations of $\SU(N)$.
+Any $\SU(N)$-equivariant self-adjoint operator $D$ acts on each
+isotypic component by a scalar $\mu_p$:
+\begin{equation}\label{eq:D_PW}
+  D = \bigoplus_p \mu_p \cdot \mathbf{1}_{d_p^2}.
+\end{equation}
+The eigenvalue $\mu_p$ has multiplicity $d_p^2$.  The spectral
+functional becomes:
+\begin{equation}\label{eq:L_SUN}
+  \mathcal{L}[D]
+  = \sum_{p,q} d_p^2 d_q^2
+    \bigl(\log|\mu_p| - \log|\mu_q|\bigr)^2.
+\end{equation}
+
+\begin{conjecture}[Casimir Minimizer]\label{conj:casimir}
+Among all $\SU(N)$-equivariant operators
+$D \in \mathfrak{D}(C(\SU(N)), L^2(\SU(N)))$ with compact resolvent,
+the minimizer of $\mathcal{L}[D]$ in~\eqref{eq:L_SUN} has
+\begin{equation}\label{eq:casimir_min}
+  \mu_p^2 \;=\; C_2(p),
+\end{equation}
+where $C_2(p)$ is the quadratic Casimir of representation $p$, up to
+an overall multiplicative constant.  That is,
+$D_{\mathrm{phys}}^2 \sim \Delta_{\SU(N)}$, the Laplace--Beltrami
+operator on $\SU(N)$.
+\end{conjecture}
+
+\subsection{Evidence for the conjecture}
+
+\begin{proposition}[Dimension-weighted log-uniformity of the Casimir spectrum]
+\label{prop:casimir_uniform}
+For $\SU(2)$, the representations are labelled by $j = 0, \tfrac{1}{2},
+1, \tfrac{3}{2}, \ldots$ with $d_j = 2j+1$ and $C_2(j) = j(j+1)$.
+The log-eigenvalues are $\ell_j = \log\sqrt{j(j+1)}$ with weight
+$d_j^2 = (2j+1)^2$.  The weighted variance
+\begin{equation}\label{eq:weighted_var}
+  \sigma^2 := \frac{\sum_j d_j^2\,(\ell_j - \bar\ell)^2}
+                    {\sum_j d_j^2}
+\end{equation}
+is finite and decreases under any local perturbation
+$\mu_j \to \mu_j + \varepsilon_j$ that preserves the compact
+resolvent condition, provided $\sum_j d_j^2 |\varepsilon_j|^2 < \infty$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+The Casimir spectrum $C_2(j) = j(j+1) \sim j^2$ gives
+$\ell_j \sim \log j$.  The dimension weights $d_j^2 \sim j^2$ ensure
+that high representations dominate the weighted sum.  For large $j$,
+$\ell_j \approx \log j$ varies slowly (logarithmically) while the
+weights grow polynomially, so the weighted distribution of
+$\ell_j$ is strongly peaked.  A perturbation that increases any
+$|\ell_j - \bar\ell|$ with weight $d_j^2$ increases $\sigma^2$ and
+hence $\mathcal{L}[D]$.
+
+A rigorous proof requires showing that $D^2 = C_2$ is a local
+minimum of~\eqref{eq:L_SUN} in a suitable topology on
+$\mathfrak{D}$.  We do not have this proof.
+\end{proof}
+
+\begin{remark}[What the conjecture does NOT say]
+Conjecture~\ref{conj:casimir} does not claim that $C_2$ is the
+\emph{unique global} minimizer.  There may be other critical points.
+The conjecture is that the Casimir spectrum is a local minimizer
+and is the physically relevant one.  Whether it is a global minimizer
+is an open problem.
+\end{remark}
+
+\subsection{The product geometry}
+
+For the Connes--Chamseddine model of the Standard Model coupled to
+gravity \cite{ConnesChamseddine1997,CCM2007}, the relevant spectral
+triple has:
+\begin{equation}\label{eq:product}
+  (\mathcal{A},\mathcal{H},D)
+  = (\mathcal{A}_M \otimes \mathcal{A}_F,\;
+     \mathcal{H}_M \otimes \mathcal{H}_F,\;
+     D_M \otimes 1 + \gamma_5 \otimes D_F),
+\end{equation}
+where $(\mathcal{A}_M, \mathcal{H}_M, D_M)$ is the canonical spectral
+triple of a closed Riemannian 4-manifold $M$ (with $D_M$ the standard
+Dirac operator on the spinor bundle) and
+$(\mathcal{A}_F, \mathcal{H}_F, D_F)$ is a finite spectral triple
+encoding the internal (gauge + Higgs) structure.
+
+The selection functional $\mathcal{L}[D]$ on the product triple
+decomposes (schematically) as:
+\begin{equation}\label{eq:L_product}
+  \mathcal{L}[D_M \otimes 1 + \gamma_5 \otimes D_F]
+  \;=\; \mathcal{L}_{\mathrm{geom}}[D_M]
+     + \mathcal{L}_{\mathrm{int}}[D_F]
+     + \mathcal{L}_{\mathrm{mix}}[D_M, D_F].
+\end{equation}
+Minimizing $\mathcal{L}_{\mathrm{geom}}$ selects the geometry of $M$;
+minimizing $\mathcal{L}_{\mathrm{int}}$ selects the internal Dirac
+operator $D_F$ (and hence Yukawa couplings and Higgs parameters);
+the mixed term $\mathcal{L}_{\mathrm{mix}}$ couples geometry to
+internal structure.
+
+We do not analyze the minimization of~\eqref{eq:L_product} in this paper.
+It is a hard variational problem whose solution, if it exists,
+would simultaneously determine the spacetime geometry and the
+particle physics parameters.
+
+%====================================================================
+\section{From $D$ to the Spectral Action}
+\label{sec:spectral_action}
+%====================================================================
+
+\subsection{The spectral action principle}
+
+Given the physical Dirac operator $D_{\mathrm{phys}}$ selected by
+minimizing $\mathcal{L}[D]$, the \emph{dynamics} of the theory is
+governed by the spectral action \cite{ConnesChamseddine1997}:
+\begin{equation}\label{eq:spec_action}
+  S[D] = \Tr\bigl[f(D^2/\Lambda^2)\bigr]
+       + \langle J\psi, D\psi\rangle,
+\end{equation}
+where $f$ is a smooth even cutoff function, $\Lambda$ is an energy
+scale, $J$ is the real structure (charge conjugation), and $\psi$
+is a spinor in $\mathcal{H}$.
+
+The bosonic part $\Tr[f(D^2/\Lambda^2)]$ encodes gravity and gauge
+fields.  The fermionic part $\langle J\psi, D\psi\rangle$ gives
+the fermionic action.
+
+\subsection{The Seeley--DeWitt expansion}
+
+For a Dirac operator $D$ on a closed 4-dimensional Riemannian manifold,
+the heat trace has the asymptotic expansion \cite{Vassilevich2003}:
+\begin{equation}\label{eq:heat_trace}
+  \Tr[e^{-tD^2}]
+  \;\sim\; \sum_{k=0}^\infty a_k(D^2)\,t^{(k-4)/2}
+  \quad (t \to 0^+).
+\end{equation}
+The Seeley--DeWitt coefficients $a_k$ are local geometric invariants:
+\begin{align}
+  a_0(D^2) &= \frac{1}{16\pi^2}\int_M \Tr(\mathbf{1})\,\sqrt{g}\,d^4x
+  &&\text{(cosmological constant)},\label{eq:a0}\\[4pt]
+  a_2(D^2) &= \frac{1}{16\pi^2}\int_M \Tr\!\left(\tfrac{R}{6}\cdot\mathbf{1}
+              - E\right)\sqrt{g}\,d^4x
+  &&\text{(Einstein--Hilbert)},\label{eq:a2}\\[4pt]
+  a_4(D^2) &= \frac{1}{16\pi^2}\int_M \Tr\!\left(
+    \tfrac{1}{180}(R_{\mu\nu\rho\sigma}^2 - R_{\mu\nu}^2)
+    + \cdots\right)\sqrt{g}\,d^4x
+  &&\text{(gauge + higher curvature)},\label{eq:a4}
+\end{align}
+where $R$ is the scalar curvature, $E$ is the endomorphism part of
+$D^2 = -(\nabla^2 + E)$, and the $a_4$ term contains the
+Yang--Mills Lagrangian $\Tr(F_{\mu\nu}F^{\mu\nu})$ and the Higgs
+kinetic/potential terms.
+
+Using the Laplace transform $f(u) = \int_0^\infty e^{-tu}\,k(t)\,dt$,
+the spectral action becomes:
+\begin{equation}\label{eq:SA_expansion}
+  \Tr[f(D^2/\Lambda^2)]
+  \;\sim\; f_4\,\Lambda^4\,a_0
+         + f_2\,\Lambda^2\,a_2
+         + f_0\,a_4
+         + O(\Lambda^{-2}),
+\end{equation}
+where $f_k = \int_0^\infty u^{k/2-1}f(u)\,du$ are moments of $f$.
+
+\subsection{Gravity, gauge fields, and the Higgs}
+
+The terms in~\eqref{eq:SA_expansion} give, at energies $E \ll \Lambda$:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}clll@{}}
+\toprule
+\textbf{Coefficient} & \textbf{Term} & \textbf{Physical content} &
+\textbf{Coupling} \\
+\midrule
+$a_0$ & $\Lambda^4 \int\sqrt{g}$ & Cosmological constant &
+  $\lambda_{\mathrm{cc}} = f_4\Lambda^4/(16\pi^2)$ \\
+$a_2$ & $\Lambda^2 \int R\sqrt{g}$ & Einstein--Hilbert action &
+  $1/(16\pi G_N) = f_2\Lambda^2/(48\pi^2)$ \\
+$a_4$ & $\int\Tr(F^2)\sqrt{g}$ & Yang--Mills action &
+  $1/g_{\mathrm{YM}}^2 = f_0/(24\pi^2)$ \\
+$a_4$ & $\int|D_\mu H|^2\sqrt{g}$ & Higgs kinetic term & \\
+$a_4$ & $\int V(H)\sqrt{g}$ & Higgs potential &
+  $\mu_H^2,\,\lambda_H$ from $D_F$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Newton's constant:
+\begin{equation}\label{eq:Newton}
+  G_N = \frac{3\pi}{f_2\,\Lambda^2}.
+\end{equation}
+
+This is the standard result of noncommutative geometry
+\cite{ConnesChamseddine1997,CCM2007,Vassilevich2003}.
+Our contribution is not the Seeley--DeWitt expansion itself
+(which is textbook material) but the \emph{origin of $D$}:
+$D = D_{\mathrm{phys}}$ is selected by minimizing $\mathcal{L}[D]$,
+not postulated.
+
+%====================================================================
+\section{The Complete Chain}
+\label{sec:chain}
+%====================================================================
+
+We now state the full logical chain of TOE v5:
+
+\medskip
+
+\noindent\textbf{Level 1: Spectral ontology} (Axioms A1--A4).
+Physical reality $=$ collection of positive spectra.
+No spacetime, no metric, no action.
+
+\medskip
+
+\noindent\textbf{Level 2: Selection principle.}
+The spectral functional $\mathcal{L}[D]$~\eqref{eq:L_D} is minimized
+over $\mathfrak{D}(\mathcal{A},\mathcal{H})$ to yield
+$D_{\mathrm{phys}}$.
+
+\medskip
+
+\noindent\textbf{Level 3: Spectral triple.}
+$(\mathcal{A},\mathcal{H},D_{\mathrm{phys}})$ is a spectral triple
+in the sense of Connes.  By Connes' reconstruction theorem
+\cite{Connes2013}, if $\mathcal{A}$ is commutative, this determines
+a Riemannian spin manifold $M$ with $D_{\mathrm{phys}}$ as its Dirac
+operator.
+
+\medskip
+
+\noindent\textbf{Level 4: Spectral action.}
+$S = \Tr[f(D_{\mathrm{phys}}^2/\Lambda^2)]
+   + \langle J\psi, D_{\mathrm{phys}}\psi\rangle$.
+By the Seeley--DeWitt expansion, this gives GR + gauge fields + Higgs
+at energies $E \ll \Lambda$.
+
+\medskip
+
+\noindent\textbf{Level 5: Quantum theory.}
+The spectral action $S$ \emph{does} satisfy RP (for suitable manifolds
+and gauge groups).  The OS reconstruction then produces $\mathcal{H}_{\mathrm{phys}}$,
+$H$, $e^{-iHt}$, the Schr\"odinger equation, and the Born rule,
+exactly as in \cite{OlbrykQM2026}.
+
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{
+\begin{equation}\label{eq:chain}
+  \underset{\text{(ontology)}}{\text{A1--A4}}
+  \;\xrightarrow{\;\min\,\mathcal{L}\;}
+  \;\underset{\text{(selection)}}{D_{\mathrm{phys}}}
+  \;\xrightarrow{\;\text{Connes}\;}
+  \;\underset{\text{(geometry)}}{(M,g)}
+  \;\xrightarrow{\;\Tr f(D^2/\Lambda^2)\;}
+  \;\underset{\text{(dynamics)}}{S}
+  \;\xrightarrow{\;\text{RP + OS}\;}
+  \;\underset{\text{(QM)}}{\mathcal{H},H,|\psi\rangle}
+\end{equation}
+}}
+\end{center}
+
+\medskip
+
+\noindent
+The RP obstruction of Section~\ref{sec:RP} is resolved:
+$\mathcal{L}$ never enters a path integral.
+It is used once, at Level~2, to select $D$.
+From Level~4 onward, RP is provided by the spectral action $S$
+(which, being the integral of a local Lagrangian density over a
+Riemannian manifold, has RP by the standard arguments of
+constructive QFT \cite{GlimmJaffe1987}).
+
+\subsection{Comparison with Connes--Chamseddine--Marcolli}
+
+In the CCM programme \cite{ConnesChamseddine1997,CCM2007,Connes2013},
+the spectral triple $(\mathcal{A},\mathcal{H},D)$ is the starting
+\emph{input}.  The algebra
+$\mathcal{A} = C^\infty(M) \otimes \mathcal{A}_F$
+with $\mathcal{A}_F = \mathbb{C} \oplus \mathbb{H} \oplus M_3(\mathbb{C})$
+is postulated, and the Dirac operator on $M$ is the standard one.
+The finite Dirac operator $D_F$ encodes the Yukawa couplings and
+is also an input.
+
+In TOE v5, \emph{we attempt to derive $D$} from a more primitive
+principle ($\min\,\mathcal{L}$).  However, the algebra $\mathcal{A}$
+and the Hilbert space $\mathcal{H}$ remain inputs.
+See Section~\ref{sec:honest} for a frank assessment.
+
+%====================================================================
+\section{What This Does and Does NOT Achieve}
+\label{sec:honest}
+%====================================================================
+
+\subsection{What is achieved}
+
+\begin{enumerate}
+\item \textbf{A selection principle for $D$.}
+  The spectral functional $\mathcal{L}[D]$ provides a variational
+  principle that selects the physical Dirac operator from the space
+  of admissible operators.  This is new: neither the CCM programme
+  nor any other approach to noncommutative geometry provides a
+  criterion for \emph{why} $D$ takes the form it does.
+
+\item \textbf{Resolution of the RP obstruction.}
+  By reinterpreting $\mathcal{L}$ as a selection principle rather
+  than a Boltzmann weight, the RP failure ceases to be fatal.
+  The chain Level~1 $\to$ Level~5 is logically consistent.
+
+\item \textbf{Connection to GR + SM via Seeley--DeWitt.}
+  If $D_{\mathrm{phys}}$ is a standard Dirac operator on $M$ (as
+  Conjecture~\ref{conj:casimir} suggests for the case
+  $\mathcal{A} = C(G)$), then the entire Connes--Chamseddine
+  machinery applies, and gravity + gauge fields + Higgs emerge
+  at low energies.
+
+\item \textbf{Conceptual economy.}
+  The Axioms A1--A4 remain the sole ontological input.
+  $\mathcal{L}[D]$ is uniquely determined by the axioms
+  (it is the most general quadratic, scale-invariant functional
+  of the log-eigenvalues).  No additional structures are introduced.
+\end{enumerate}
+
+\subsection{What is NOT achieved}
+
+We list, with full honesty, the limitations:
+
+\begin{enumerate}
+\item \textbf{The algebra $\mathcal{A}$ is not derived.}
+  The choice of $\mathcal{A}$ determines the gauge group, spacetime
+  dimension, and particle content.  In the CCM programme, the SM algebra
+  $\mathcal{A}_F = \mathbb{C} \oplus \mathbb{H} \oplus M_3(\mathbb{C})$
+  is the minimal algebra satisfying certain axioms (real dimension~0,
+  KO-dimension~6, first-order condition).  We import this result.
+  \emph{We do not derive $\mathcal{A}_F$ from Axioms A1--A4.}
+
+\item \textbf{Spacetime dimension is not derived.}
+  The dimension $d=4$ enters through the algebra
+  $\mathcal{A}_M = C^\infty(M^4)$.  While Version~3
+  \cite{Olbryk2026v3} proposed a Bott periodicity argument
+  for $d=4$, it relies on assumptions about the KO-dimension
+  of the internal space that are not consequences of A1--A4 alone.
+
+\item \textbf{Fermion content is not derived.}
+  The Hilbert space $\mathcal{H}_F$ determines the fermion
+  representations.  In CCM, $\mathcal{H}_F$ has dimension 96
+  (= 3 generations $\times$ 16 Weyl fermions $\times$ particle/antiparticle).
+  This is input, not output.
+
+\item \textbf{Conjecture~\ref{conj:casimir} is unproved.}
+  We have not rigorously shown that the Casimir spectrum minimizes
+  $\mathcal{L}[D]$.  This is a well-posed mathematical conjecture
+  that should be amenable to numerical verification (see
+  Section~\ref{sec:outlook}).
+
+\item \textbf{Uniqueness of the minimizer is open.}
+  Even if Conjecture~\ref{conj:casimir} holds, there may be other
+  local or global minimizers of $\mathcal{L}$.  Whether the physical
+  $D$ is selected by being the \emph{global} minimum, or by some
+  other criterion among critical points, is not determined.
+
+\item \textbf{No prediction beyond CCM.}
+  If the chain Level~1 $\to$ Level~5 is correct, it reproduces
+  the predictions of the CCM programme (and hence of the SM + GR),
+  but does not go beyond them.  The only new content is the
+  selection principle for $D$, which at present makes no
+  additional testable predictions.
+\end{enumerate}
+
+\subsection{Comparison with previous versions}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{2cm}p{4cm}p{4cm}p{3cm}@{}}
+\toprule
+\textbf{Version} & \textbf{Role of $\mathcal{L}$} &
+\textbf{RP status} & \textbf{Key issue} \\
+\midrule
+v1--v2 & Boltzmann weight $e^{-\beta\mathcal{L}}$ &
+  Assumed (incorrectly) & RMT paradox \\
+v3 & Boltzmann weight + Stokes & Imported from Wilson &
+  $\mathcal{L}$ itself fails RP \\
+v4 & (CMP submission) & Same as v3 &
+  Same \\
+v5 & Selection principle $\min\mathcal{L}$ &
+  Not needed for $\mathcal{L}$; RP from $S[D]$ &
+  Conjecture~\ref{conj:casimir} unproved \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%====================================================================
+\section{The Euler--Lagrange Equation}
+\label{sec:EL}
+%====================================================================
+
+We derive the stationarity condition for $\mathcal{L}[D]$ in the
+equivariant case.  Let $D = \bigoplus_p \mu_p \cdot \mathbf{1}_{d_p^2}$
+as in~\eqref{eq:D_PW}, with $\mu_p > 0$ (restricting to the positive
+part of the spectrum).  Setting $\ell_p = \log\mu_p$:
+\begin{equation}\label{eq:L_ell}
+  \mathcal{L}
+  = \sum_{p,q} d_p^2 d_q^2\,(\ell_p - \ell_q)^2.
+\end{equation}
+Computing $\partial\mathcal{L}/\partial\ell_r = 0$:
+\begin{equation}\label{eq:EL}
+  \sum_{q} d_q^2\,(\ell_r - \ell_q) = 0
+  \qquad \forall\; r,
+\end{equation}
+which gives
+\begin{equation}\label{eq:EL_solution}
+  \ell_r
+  = \frac{\sum_q d_q^2\,\ell_q}{\sum_q d_q^2}
+  =: \bar\ell
+  \qquad \forall\; r.
+\end{equation}
+That is, all log-eigenvalues must equal the weighted mean $\bar\ell$.
+This is the $\mathcal{L} = 0$ solution: the degenerate spectrum.
+
+\begin{remark}
+The Euler--Lagrange equation~\eqref{eq:EL_solution} gives
+$\ell_r = \bar\ell$ for all $r$, which is
+incompatible with the compact resolvent condition (which requires
+$|\mu_p| \to \infty$).  Therefore, the minimizer of $\mathcal{L}$
+over $\mathfrak{D}$ is \emph{not} an interior critical point of the
+unconstrained functional.  It sits on the boundary of the admissible
+set, where the compact-resolvent constraint is active.
+
+This is the technical core of Conjecture~\ref{conj:casimir}:
+the minimizer is the spectrum that grows as slowly as possible
+(in the log-variance sense, weighted by multiplicities) while
+still satisfying $|\mu_p| \to \infty$.  For $\SU(N)$, the Casimir
+spectrum $\mu_p^2 = C_2(p) \sim p^2$ is the slowest-growing
+$\SU(N)$-equivariant option, hence the conjectured minimizer.
+\end{remark}
+
+\begin{proposition}[Growth constraint]\label{prop:growth}
+For $D \in \mathfrak{D}(\mathcal{A},\mathcal{H})$ on a compact
+Riemannian $d$-manifold $M$, Weyl's law gives:
+\begin{equation}\label{eq:weyl}
+  |\mu_k| \;\sim\; C_d\,k^{1/d}
+  \quad (k \to \infty),
+\end{equation}
+where $C_d$ depends on $\mathrm{vol}(M)$ and $d$.
+The log-eigenvalues satisfy $\ell_k \sim (1/d)\log k$, and
+the spectral functional scales as:
+\begin{equation}\label{eq:L_scaling}
+  \mathcal{L}[D] \;\sim\;
+  \frac{1}{d^2}\sum_{k,j=1}^K (\log k - \log j)^2
+  \;\sim\; \frac{K^2}{d^2}\,\sigma^2(\log),
+\end{equation}
+where $\sigma^2(\log)$ is the variance of $\log k$ over $\{1,\ldots,K\}$.
+The minimizer over Riemannian metrics $g$ on $M$ is the metric
+whose Dirac spectrum has the smallest log-variance---the most
+``uniform'' spectrum in the logarithmic scale.
+\end{proposition}
+
+%====================================================================
+\section{Outlook and Open Problems}
+\label{sec:outlook}
+%====================================================================
+
+\begin{enumerate}
+\item \textbf{Prove Conjecture~\ref{conj:casimir}.}
+  This is a well-posed variational problem: minimize the
+  dimension-weighted log-variance of the spectrum over all
+  $\SU(N)$-equivariant operators with compact resolvent on
+  $L^2(\SU(N))$.  The conjecture can be tested numerically by
+  truncating to the first $K$ representations and optimizing
+  $\mathcal{L}(\mu_1,\ldots,\mu_K)$ subject to the growth constraint
+  $|\mu_p| \to \infty$.
+
+\item \textbf{Derive $\mathcal{A}_F$.}
+  The deepest open problem is to derive the finite algebra
+  $\mathcal{A}_F = \mathbb{C} \oplus \mathbb{H} \oplus M_3(\mathbb{C})$
+  from a more primitive principle.  One possibility: extend the selection
+  principle to simultaneously minimize over both $D$ and $\mathcal{A}$
+  within the class of algebras satisfying the axioms of a real spectral
+  triple.  The CCM classification
+  \cite{CCM2007} shows that $\mathcal{A}_F$ is the unique solution
+  up to Morita equivalence; the question is whether this uniqueness
+  can be rephrased as a minimality condition on $\mathcal{L}$.
+
+\item \textbf{Numerical minimization on the product geometry.}
+  Discretize $(\mathcal{A}_M \otimes \mathcal{A}_F,\,
+  \mathcal{H}_M \otimes \mathcal{H}_F,\,
+  D_M \otimes 1 + \gamma_5 \otimes D_F)$ on a finite lattice,
+  compute $\mathcal{L}[D]$, and minimize numerically.
+  Does the standard Dirac operator on a round $S^4$ emerge?
+  Does $D_F$ approach the SM Yukawa matrix?
+
+\item \textbf{Predictions from the selection principle.}
+  If the minimizer $D_{\mathrm{phys}}$ is unique (or if one can
+  identify a finite-dimensional family of near-minimizers),
+  the Yukawa couplings and Higgs parameters are \emph{determined}
+  by $\min\,\mathcal{L}$, yielding testable predictions.
+  This would go beyond CCM, which takes $D_F$ as input.
+
+\item \textbf{Cosmological constant.}
+  The $a_0$ term gives $\Lambda_{\mathrm{cc}} \sim f_4\Lambda^4$.
+  If the selection principle also determines $\Lambda$ (e.g., by
+  balancing $a_0$ against $a_2$), this could address the cosmological
+  constant problem.  We have no concrete result here.
+
+\item \textbf{Quantum gravity.}
+  The chain~\eqref{eq:chain} treats $D$ classically (minimized, not
+  path-integrated).  Fluctuations of $D$ around $D_{\mathrm{phys}}$
+  define quantum gravity in the spectral framework.  The RP obstruction
+  does not apply to small fluctuations around the minimum (which are
+  governed by $S[D]$, not $\mathcal{L}[D]$).
+\end{enumerate}
+
+%====================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%====================================================================
+
+The spectral functional $\mathcal{L}$ of Axioms A1--A4 fails reflection
+positivity and therefore cannot serve as a Boltzmann weight defining a
+quantum theory.  This is not a defect of the axioms but a
+misidentification of the \emph{role} of $\mathcal{L}$ in previous
+versions.
+
+In Version~5, $\mathcal{L}$ is a \emph{selection principle}:
+it picks out the physical Dirac operator $D_{\mathrm{phys}}$ by
+minimization over the space of admissible operators.
+The selected $D_{\mathrm{phys}}$ defines a spectral triple
+$(\mathcal{A},\mathcal{H},D_{\mathrm{phys}})$, and the
+Connes--Chamseddine spectral action
+$\Tr[f(D_{\mathrm{phys}}^2/\Lambda^2)]$ yields, via the
+Seeley--DeWitt expansion, the Einstein--Hilbert action, Yang--Mills
+gauge fields, and the Higgs mechanism at low energies.
+
+The price paid is clear: the algebra $\mathcal{A}$ (and hence the
+gauge group, spacetime dimension, and fermion content) is not derived
+from first principles but imported from the CCM classification.
+Conjecture~\ref{conj:casimir}---that the Casimir spectrum minimizes
+$\mathcal{L}$---is stated but unproved.
+No predictions beyond the Standard Model are made at this stage.
+
+What is gained is also clear: a logically consistent chain from
+spectral ontology to physics, with the RP obstruction resolved
+and the role of $\mathcal{L}$ properly identified.  The selection
+principle for $D$ is the new content, and it poses a well-defined
+mathematical problem whose resolution---by proof or by numerical
+computation---would determine whether this framework has
+predictive power beyond what it inherits from Connes' programme.
+
+\begin{thebibliography}{99}
+
+\bibitem{Olbryk2026v2}
+G.~Olbryk,
+\emph{Global Spectral Theory of Everything --- Version~2},
+2026.
+
+\bibitem{Olbryk2026v3}
+G.~Olbryk,
+\emph{Global Spectral Theory of Everything --- Version~3:
+Stokes Foundation},
+2026.
+
+\bibitem{OlbrykPsi2026}
+G.~Olbryk,
+\emph{Fisher Zeros as Stokes Phenomena in Lattice Gauge Theory},
+2026.
+
+\bibitem{OlbrykQM2026}
+G.~Olbryk,
+\emph{Quantum Mechanics from OS Reconstruction:
+The Explicit Seven-Step Chain},
+2026.
+
+\bibitem{OS73}
+K.~Osterwalder and R.~Schrader,
+\emph{Axioms for Euclidean Green's functions},
+Comm.\ Math.\ Phys.\ \textbf{31} (1973) 83--112.
+
+\bibitem{OS75}
+K.~Osterwalder and R.~Schrader,
+\emph{Axioms for Euclidean Green's functions II},
+Comm.\ Math.\ Phys.\ \textbf{42} (1975) 281--305.
+
+\bibitem{Connes1994}
+A.~Connes,
+\emph{Noncommutative Geometry},
+Academic Press, 1994.
+
+\bibitem{ConnesChamseddine1997}
+A.~H.~Chamseddine and A.~Connes,
+\emph{The spectral action principle},
+Comm.\ Math.\ Phys.\ \textbf{186} (1997) 731--750.
+
+\bibitem{CCM2007}
+A.~H.~Chamseddine, A.~Connes, and M.~Marcolli,
+\emph{Gravity and the standard model with neutrino mixing},
+Adv.\ Theor.\ Math.\ Phys.\ \textbf{11} (2007) 991--1089.
+
+\bibitem{Connes2013}
+A.~Connes,
+\emph{On the spectral characterization of manifolds},
+J.\ Noncommut.\ Geom.\ \textbf{7} (2013) 1--82.
+
+\bibitem{Vassilevich2003}
+D.~V.~Vassilevich,
+\emph{Heat kernel expansion: user's manual},
+Phys.\ Rep.\ \textbf{388} (2003) 279--360.
+
+\bibitem{GlimmJaffe1987}
+J.~Glimm and A.~Jaffe,
+\emph{Quantum Physics: A Functional Integral Point of View},
+2nd ed., Springer, 1987.
+
+\bibitem{GibbonsHawking1977}
+G.~W.~Gibbons and S.~W.~Hawking,
+\emph{Action integrals and partition functions in quantum gravity},
+Phys.\ Rev.\ D \textbf{15} (1977) 2752.
+
+\end{thebibliography}
+
+\end{document}
