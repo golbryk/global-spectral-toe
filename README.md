@@ -1,22 +1,26 @@
-This repository corresponds to Zenodo DOI:
+Previous version (v2) on Zenodo DOI:
 https://doi.org/10.5281/zenodo.18213696
 
 ======================================================================
 STATUS NOTICE
 ======================================================================
 
-This repository contains **Version 2** of the Global Spectral Theory of
-Everything (TOE).
+This repository contains **Versions 2, 3, and 4** of the Global Spectral
+programme.
 
-An earlier exploratory version (Zenodo record v1) has been **superseded**
-following explicit validation and falsification tests, most notably
-Random Matrix Theory (RMT) analysis. The present repository documents
-the corrected scope, limits, and core mathematical structure of the
-theory in a transparent and reproducible manner.
+**Version 2** (Zenodo): Original spectral TOE with RMT validation.
+**Version 3** (`toe_v3_stokes_foundation.tex`): Stokes foundation —
+resolves the RMT paradox, derives mass mechanism from transfer matrix,
+and connects to the Yang-Mills mass gap programme.
+**Version 4** (`toe_v4_CMP_submission.tex`): **Stokes-RG Correspondence
+in Lattice Gauge Theory** — focused mathematical physics paper (18pp),
+submission-ready for Communications in Mathematical Physics. Score: 8/10
+after 10 rounds of adversarial builder-critic review.
 
-This work is **not presented as a complete effective theory of hadrons
-or strongly chaotic many-body systems**. Its claims are explicitly
-limited to the fundamental, background-independent level.
+The v4 paper does NOT claim to be a Theory of Everything. It establishes
+the Stokes-RG correspondence: the lattice mass gap equals the distance
+from the real coupling axis to the dominant Stokes curve of the partition
+function, connecting constructive QFT with Lee-Yang zero theory.
 
 The superseded Version 1 remains archived under:
 https://doi.org/10.5281/zenodo.17961030
