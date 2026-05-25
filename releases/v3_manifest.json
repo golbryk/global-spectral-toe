@@ -1,0 +1,103 @@
+{
+  "schema": "global-spectral-toe/v3-manifest",
+  "schema_version": "1.0",
+  "zenodo_doi": "10.5281/zenodo.20374769",
+  "title": "Global Spectral Theory of Everything — Version 3: Scope, Structural Status, and Operational Falsifiers",
+  "date": "2026-05-25",
+  "global_repo_commit": "ef5c93a",
+  "hsmi_companion_commit": "0fea9c5",
+  "public_pdf_filename": "global_spectral_toe_v3.pdf",
+  "public_pdf_location": "Zenodo record (not stored in this repository)",
+  "previous_version_doi": "10.5281/zenodo.18213696",
+  "superseded_version_doi": "10.5281/zenodo.17961030",
+  "release_character": "Version 3 is a synthesis/scope/status PDF, not a full research archive.",
+  "non_claims": [
+    "Does not claim a complete or 100% Theory of Everything.",
+    "Does not claim the neutrino mass ordering (A4) is solved at the local level.",
+    "Does not claim a complete proof of the Yang-Mills mass gap (companion proof is a candidate).",
+    "Not a phenomenological replacement for the Standard Model or QCD."
+  ],
+  "claims": [
+    {
+      "id": "rmt-intermediate-statistics",
+      "claim": "Fundamental excitation operator shows intermediate (pseudo-integrable) level-spacing statistics between Poisson and GOE; universal GOE chaos is not obtained at the fundamental level and is not restored by increasing N or coupling.",
+      "files": [
+        "rmt/excitation_operator.py",
+        "rmt/ensemble_references.py",
+        "rmt/scaling_tests.py",
+        "rmt/rmt_extended_analysis.py",
+        "rmt/logs/scaling_tests_2026-01-11.txt",
+        "scripts/v3_smoke_tests/run_rmt_smoke.py"
+      ],
+      "command": "cd rmt && python scaling_tests.py   (GPU);   python3 scripts/v3_smoke_tests/run_rmt_smoke.py   (CPU sanity)",
+      "expected_output": "Spacing-ratio <r> for TOE operator in window approx (0.386, 0.530), mean approx 0.43, between Poisson approx 0.386 and GOE approx 0.531.",
+      "status": "reproducible",
+      "limitations": "Full sweep needs CuPy/CUDA; formal audit (residuals, multi-seed error bars, unfolding/finite-size) pending — see RMT_NUMERICAL_AUDIT_PLAN.md. The 'r' here is the spacing-ratio statistic, not a neutrino mass ratio."
+    },
+    {
+      "id": "stokes-rg-correspondence",
+      "claim": "Lattice mass gap equals the distance from the real coupling axis to the dominant Stokes curve of the partition function (Stokes-RG correspondence).",
+      "files": [
+        "theory/toe_v4_CMP_submission.tex",
+        "theory/toe_v4_CMP_submission.pdf",
+        "rmt/toe_stokes_verification.py",
+        "rmt/cp_stokes_phases.py"
+      ],
+      "command": "Read theory/toe_v4_CMP_submission.pdf; rigorous engine in companion repo.",
+      "expected_output": "Manuscript distinguishes the unconditionally-proved correspondence from consequences conditional on the mass-gap programme.",
+      "status": "documented-partially-conditional",
+      "limitations": "Repository holds manuscript and exploratory scripts, not the rigorous proof engine; some scripts require GPU and are outside the minimal smoke set."
+    },
+    {
+      "id": "hsmi-yang-mills-companion",
+      "claim": "Rigorous lattice-gauge mathematics (Yang-Mills mass-gap candidate proof, Fisher zeros, Stokes concentration) underpins the Stokes-RG machinery.",
+      "files": [],
+      "command": "See companion repository https://github.com/golbryk/hsmi-yang-mills at commit 0fea9c5",
+      "expected_output": "Independent rigorous results; mass-gap proof is a candidate (W5 and large-field Gribov open).",
+      "status": "pointer-only",
+      "limitations": "Not reproduced from within this repository; repositories linked only via Stokes/Fisher-zero machinery."
+    },
+    {
+      "id": "neutrino-mass-ordering-layered",
+      "claim": "Neutrino mass ordering status is layered: (a) local construction open — Majorana scale free, ordering not a local theorem; (b) minimal Majorana branch favors Normal Ordering, model-selection not forced; (c) global-spectral/swampland argument convergently favors Normal Ordering, conjectural.",
+      "files": [
+        "docs/STATUS_AND_LIMITS.md",
+        "rmt/neutrino_hierarchy_spectral.py",
+        "rmt/neutrino_seesaw_spectral.py",
+        "rmt/majorana_phases_spectral.py"
+      ],
+      "command": "None that derives the ordering; exploratory scripts illustrate the model-selection branch only.",
+      "expected_output": "No script outputs the ordering as a theorem; status is conceptual / model-selection / global-QG.",
+      "status": "not-locally-reproduced-by-design",
+      "limitations": "Open empirical boundary, not a result; A4/ordering is not claimed solved. Resolution rests on experiment (JUNO, DUNE, cosmology/DESI). Inverted ordering would falsify the predictive branch and the global-spectral argument, not the entire local framework."
+    },
+    {
+      "id": "deprecated-retracted-leads",
+      "claim": "Internal leads recorded for honesty only, not used as final claims.",
+      "files": [
+        "docs/STATUS_AND_LIMITS.md",
+        "theory/DEPRECATED_toe_v3_stokes_foundation.md",
+        "theory/toe_v3_stokes_foundation.tex"
+      ],
+      "command": "None — explicitly not active.",
+      "expected_output": "n/a",
+      "status": "retracted-or-deprecated",
+      "limitations": "Earlier neutrino mass-ratio 'inverted-ordering exclusion' argument retracted as non-robust; earlier internal mechanism routes to force the ordering tried and abandoned. None is a result."
+    }
+  ],
+  "reproducibility_docs": [
+    "docs/V3_RELEASE_NOTES.md",
+    "docs/V3_REPRODUCIBILITY.md",
+    "docs/RMT_NUMERICAL_AUDIT_PLAN.md",
+    "docs/STATUS_AND_LIMITS.md",
+    "scripts/v3_smoke_tests/README.md",
+    "scripts/v3_smoke_tests/run_rmt_smoke.py"
+  ],
+  "limitations": [
+    "Version 3 PDF is a synthesis/scope/status document, not a full research archive.",
+    "The full RMT numerical audit (floating-point stability, eigensolver residuals, unfolding sensitivity, finite-size scaling, seed/ensemble dependence, CPU/GPU comparison) is planned, not completed — see RMT_NUMERICAL_AUDIT_PLAN.md.",
+    "Neutrino mass ordering is an open empirical boundary; not solved.",
+    "Yang-Mills mass-gap proof in the companion repository is a candidate (W5 and large-field Gribov open).",
+    "theory/toe_v3_stokes_foundation.tex/.pdf is an obsolete, superseded internal draft and is not the Zenodo Version 3 document."
+  ]
+}
