@@ -90,6 +90,20 @@ were tried and **abandoned**. None of these are claimed as results.
 
 ---
 
+## Version 3 reproducibility materials
+
+Version 3 is a synthesis/status document, not a full research archive. The release is accompanied by a curated reproducibility layer:
+
+- `docs/V3_RELEASE_NOTES.md` — Zenodo DOI, release scope, and pinned commits.
+- `docs/V3_REPRODUCIBILITY.md` — claim-to-evidence map with commands and limitations.
+- `docs/RMT_NUMERICAL_AUDIT_PLAN.md` — planned forensic audit for RMT numerical robustness.
+- `releases/v3_manifest.json` — machine-readable release manifest.
+- `scripts/v3_smoke_tests/` — small CPU-only RMT smoke test.
+
+The smoke test is a tooling sanity check, not a full reproduction of the public RMT result. Full researcher-grade reproduction requires the audit steps listed in `docs/RMT_NUMERICAL_AUDIT_PLAN.md`.
+
+---
+
 ## Companion repository: Yang-Mills mass gap
 
 The Yang-Mills mass gap **candidate proof** (79pp, non-perturbative RG via
