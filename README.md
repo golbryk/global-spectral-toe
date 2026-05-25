@@ -2,7 +2,8 @@
 
 **Author:** Grzegorz Olbryk · **Contact:** g.olbryk@gmail.com
 
-Previous version (v2) on Zenodo: DOI [10.5281/zenodo.18213696](https://doi.org/10.5281/zenodo.18213696)
+Latest public synthesis (v3) on Zenodo: DOI [10.5281/zenodo.20374769](https://doi.org/10.5281/zenodo.20374769)
+· Previous version (v2): DOI [10.5281/zenodo.18213696](https://doi.org/10.5281/zenodo.18213696)
 
 ---
 
@@ -16,11 +17,13 @@ The citable public records of the *Global Spectral Theory of Everything*
 synthesis document:
 
 - **Version 1** — DOI 10.5281/zenodo.17961030 (superseded)
-- **Version 2** — DOI 10.5281/zenodo.18213696 (current published record)
-- **Version 3 — forthcoming** — a new, single-file synthesis/scope PDF
-  (`global_spectral_toe_v3.pdf`) continuing Version 2 with the corrected,
-  layered scientific status (see [Current scientific status](#current-scientific-status)
-  below). The Version 3 DOI is pending and will be added once Zenodo mints it.
+- **Version 2** — DOI 10.5281/zenodo.18213696 (previous version)
+- **Version 3 — DOI [10.5281/zenodo.20374769](https://doi.org/10.5281/zenodo.20374769)**
+  (current / latest public synthesis): *Global Spectral Theory of Everything —
+  Version 3: Scope, Structural Status, and Operational Falsifiers* — a single-file
+  synthesis/scope PDF (`global_spectral_toe_v3.pdf`) continuing Version 2 with the
+  corrected, layered scientific status (see
+  [Current scientific status](#current-scientific-status) below).
 
 ### Internal programme drafts
 
@@ -205,7 +208,13 @@ interpretations, and validations remain the responsibility of the author.
 
 ## Citation
 
-If you use or reference this work, please cite:
+If you use or reference this work, please cite the current Version 3:
+
+> Grzegorz Olbryk, *Global Spectral Theory of Everything — Version 3: Scope,
+> Structural Status, and Operational Falsifiers*, Zenodo (2026),
+> DOI [10.5281/zenodo.20374769](https://doi.org/10.5281/zenodo.20374769).
+
+Previous version (v2):
 
 > Grzegorz Olbryk, *Global Spectral Theory of Everything — Version 2: Scope,
 > Validation, and Limits*, Zenodo (2026),

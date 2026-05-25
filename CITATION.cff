@@ -1,12 +1,16 @@
 cff-version: 1.2.0
-message: "If you use this work, please cite the Zenodo record below."
-title: "Global Spectral Theory of Everything"
+message: "If you use this work, please cite the current Version 3 Zenodo record below."
+title: "Global Spectral Theory of Everything — Version 3: Scope, Structural Status, and Operational Falsifiers"
+version: "v3"
 authors:
   - family-names: "Olbryk"
     given-names: "Grzegorz"
     email: "g.olbryk@gmail.com"
 type: software
 repository-code: "https://github.com/golbryk/global-spectral-toe"
+doi: "10.5281/zenodo.20374769"
+url: "https://doi.org/10.5281/zenodo.20374769"
+date-released: "2026-05-25"
 license: MIT
 abstract: >-
   A background-independent, relational, global-spectral foundational
@@ -23,17 +27,29 @@ keywords:
   - random matrix theory
   - spectral triple
   - falsification
-# Current published Zenodo record (Version 2). Version 3 DOI is pending and
-# will be added here once Zenodo mints it; do not cite a Version 3 DOI until then.
+# Current published Zenodo record: Version 3 (DOI 10.5281/zenodo.20374769).
+# Version 2 (DOI 10.5281/zenodo.18213696) is the previous version, retained
+# below as a reference only — not the current DOI.
 identifiers:
   - type: doi
+    value: "10.5281/zenodo.20374769"
+    description: "Zenodo Version 3 (current published record)"
+  - type: doi
     value: "10.5281/zenodo.18213696"
-    description: "Zenodo Version 2 (current published record)"
+    description: "Zenodo Version 2 (previous version)"
 preferred-citation:
   type: report
-  title: "Global Spectral Theory of Everything — Version 2: Scope, Validation, and Limits"
+  title: "Global Spectral Theory of Everything — Version 3: Scope, Structural Status, and Operational Falsifiers"
   authors:
     - family-names: "Olbryk"
       given-names: "Grzegorz"
   year: 2026
-  doi: "10.5281/zenodo.18213696"
+  doi: "10.5281/zenodo.20374769"
+references:
+  - type: report
+    title: "Global Spectral Theory of Everything — Version 2: Scope, Validation, and Limits"
+    authors:
+      - family-names: "Olbryk"
+        given-names: "Grzegorz"
+    year: 2026
+    doi: "10.5281/zenodo.18213696"
