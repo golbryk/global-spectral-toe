@@ -2,25 +2,70 @@ Previous version (v2) on Zenodo DOI:
 https://doi.org/10.5281/zenodo.18213696
 
 ======================================================================
-STATUS NOTICE
+STATUS NOTICE — VERSIONING (READ FIRST)
 ======================================================================
 
-This repository contains **Versions 2, 3, and 4** of the Global Spectral
-programme.
+Two version numberings appear in this project; they are NOT the same:
 
-**Version 2** (Zenodo): Original spectral TOE with RMT validation.
-**Version 3** (`toe_v3_stokes_foundation.tex`): Stokes foundation —
-resolves the RMT paradox, derives mass mechanism from transfer matrix,
-and connects to the Yang-Mills mass gap programme.
-**Version 4** (`toe_v4_CMP_submission.tex`): **Stokes-RG Correspondence
-in Lattice Gauge Theory** — focused mathematical physics paper (18pp),
-submission-ready for Communications in Mathematical Physics. Score: 8/10
-after 10 rounds of adversarial builder-critic review.
+* **Zenodo release versions** — the citable public records of the
+  *Global Spectral Theory of Everything* synthesis document:
+    - Version 1: DOI 10.5281/zenodo.17961030 (superseded)
+    - Version 2: DOI 10.5281/zenodo.18213696 (current published record)
+    - **Version 3: forthcoming** — a new, single-file synthesis/scope PDF
+      (`global_spectral_toe_v3.pdf`) continuing Version 2 with the corrected,
+      layered scientific status (see "Current scientific status" below).
+      The Version 3 DOI is pending and will be added once Zenodo mints it.
 
-The v4 paper does NOT claim to be a Theory of Everything. It establishes
-the Stokes-RG correspondence: the lattice mass gap equals the distance
-from the real coupling axis to the dominant Stokes curve of the partition
-function, connecting constructive QFT with Lee-Yang zero theory.
+* **Internal programme drafts** — working LaTeX sources under `theory/`.
+
+DEPRECATION NOTICE: the internal draft `theory/toe_v3_stokes_foundation.tex`
+is an **obsolete superseded internal draft**. It is NOT the Zenodo Version 3
+release document and must not be cited as the final Version 3. In particular,
+its flat statement that the framework "predicts the normal neutrino hierarchy
+and an inverted result would falsify the theory" is superseded by the layered
+status in the new Version 3 synthesis (and in `docs/STATUS_AND_LIMITS.md`).
+See `theory/DEPRECATED_toe_v3_stokes_foundation.md`.
+
+The companion mathematical-physics paper `theory/toe_v4_CMP_submission.tex`
+(**Stokes–RG Correspondence in Lattice Gauge Theory**, 18pp) does NOT claim
+to be a Theory of Everything. It establishes only the Stokes–RG correspondence:
+the lattice mass gap equals the distance from the real coupling axis to the
+dominant Stokes curve of the partition function, connecting constructive QFT
+with Lee–Yang zero theory. Its rigorous engine lives in the companion repo
+`hsmi-yang-mills`.
+
+======================================================================
+CURRENT SCIENTIFIC STATUS (authoritative summary)
+======================================================================
+
+Full detail and falsifier map: `docs/STATUS_AND_LIMITS.md`.
+
+* The framework is a **background-independent, relational, global-spectral
+  foundational construction**. It is NOT a complete Theory of Everything,
+  NOT a phenomenological replacement for the Standard Model or QCD, and makes
+  **no "TOE solved / 100%" claim**.
+* **RMT result stands:** the fundamental operators show intermediate
+  (pseudo-integrable) statistics between Poisson and GOE; universal quantum
+  chaos is NOT obtained at the fundamental level. This falsifies a direct
+  hadronic reading and is treated as a positive structural constraint.
+* **Neutrino mass ordering (layered status — none of these is "solved"):**
+    1. *Local derivation: open.* Within the framework's local construction the
+       relevant Majorana scale is a free parameter; the ordering is **not
+       derived as a local theorem** — it is an empirical boundary.
+    2. *Minimal Majorana-sector branch:* the minimal/symmetric choice favors
+       **Normal Ordering**, but this is a model-selection branch, **not forced**.
+    3. *Global / swampland argument:* a global-spectral (quantum-gravity)
+       consistency argument **convergently favors Normal Ordering**, but it is
+       **conjectural** (rests on unproven swampland-type conjectures).
+    An inverted-ordering measurement would falsify the *predictive (minimal
+    Majorana) branch* and the *global-spectral Normal-Ordering argument* — it
+    would NOT automatically falsify the entire local framework.
+* **Deprecated / retracted internal leads** (recorded for honesty, not used as
+  final claims): an earlier neutrino mass-ratio "inverted-ordering exclusion"
+  argument was **retracted** as non-robust; several earlier internal mechanism
+  routes for forcing the ordering were tried and **abandoned**. None of these
+  are claimed as results. (Note: the RMT level-spacing window r ∈ (0.386, 0.530)
+  is a *different* quantity and still stands.)
 
 ======================================================================
 COMPANION REPOSITORY: YANG-MILLS MASS GAP

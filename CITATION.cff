@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the Zenodo record below."
+title: "Global Spectral Theory of Everything"
+authors:
+  - family-names: "Olbryk"
+    given-names: "Grzegorz"
+    email: "g.olbryk@gmail.com"
+type: software
+repository-code: "https://github.com/golbryk/global-spectral-toe"
+license: MIT
+abstract: >-
+  A background-independent, relational, global-spectral foundational
+  framework in which physical structure emerges from global spectral
+  properties of a relational system rather than local dynamics on a
+  predefined spacetime. Includes Random Matrix Theory falsification tests.
+  This is a foundational construction with an explicit scientific-status and
+  falsifier map (see docs/STATUS_AND_LIMITS.md); it is NOT a complete
+  Theory of Everything and makes no "TOE solved" claim.
+keywords:
+  - global spectral theory
+  - background independence
+  - relational physics
+  - random matrix theory
+  - spectral triple
+  - falsification
+# Current published Zenodo record (Version 2). Version 3 DOI is pending and
+# will be added here once Zenodo mints it; do not cite a Version 3 DOI until then.
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.18213696"
+    description: "Zenodo Version 2 (current published record)"
+preferred-citation:
+  type: report
+  title: "Global Spectral Theory of Everything — Version 2: Scope, Validation, and Limits"
+  authors:
+    - family-names: "Olbryk"
+      given-names: "Grzegorz"
+  year: 2026
+  doi: "10.5281/zenodo.18213696"
